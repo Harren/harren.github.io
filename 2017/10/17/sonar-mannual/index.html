@@ -108,7 +108,10 @@
 <meta property="og:description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw690/78d85414ly1fknfudniaej21kw0uan49.jpg">
-<meta property="og:updated_time" content="2017-10-19T04:26:05.000Z">
+<meta property="og:image" content="http://yoursite.com/2017/10/17/sonar-mannual/img/sonar_manual/sonar_manual_1.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/17/sonar-mannual/img/sonar_manual/sonar_manual_2.png">
+<meta property="og:image" content="http://yoursite.com/2017/10/17/sonar-mannual/img/sonar_manual/sonar_manual_3.png">
+<meta property="og:updated_time" content="2017-10-25T04:37:40.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sonar代码质量分析使用">
 <meta name="twitter:description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
@@ -414,12 +417,49 @@
       
         <h2 id="Sonar概述"><a href="#Sonar概述" class="headerlink" title="Sonar概述"></a>Sonar概述</h2><p>Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。</p>
 <p>与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而可以方便地对不同规模和种类的工程进行代码质量管理。</p>
-<p>在对其他工具的支持方面，Sonar 不仅提供了对 IDE 的支持，可以在 Eclipse 和 IntelliJ IDEA 这些工具里联机查看结果；同时 Sonar 还对大量的持续集成工具提供了接口支持，可以很方便地在持续集成中使用 Sonar。<br>此外，Sonar的插件还可以对 Java 以外的其他编程语言提供支持，对国际化以及报告文档化也有良好的支持。</p>
 <p><img src="http://wx3.sinaimg.cn/mw690/78d85414ly1fknfudniaej21kw0uan49.jpg" alt="ffmpeg"><br><a id="more"></a></p>
+<p>在对其他工具的支持方面，Sonar 不仅提供了对 IDE 的支持，可以在 Eclipse 和 IntelliJ IDEA 这些工具里联机查看结果；同时 Sonar 还对大量的持续集成工具提供了接口支持，可以很方便地在持续集成中使用 Sonar。<br>此外，Sonar的插件还可以对 Java 以外的其他编程语言提供支持，对国际化以及报告文档化也有良好的支持。</p>
 <h2 id="Sonar安装"><a href="#Sonar安装" class="headerlink" title="Sonar安装"></a>Sonar安装</h2><p>本文主要介绍 Sonar 的使用方法，直接到<a href="https://www.sonarqube.org" target="_blank" rel="external">Sonar官网</a>下载最近的发型包即可，本文使用的为最新的版本为6.5(推荐使用最新版)，其源代码可以参考<a href="https://github.com/SonarSource/sonarqube" target="_blank" rel="external">github地址</a>。</p>
 <p>下载zip包后，直接解压，然后根据应用服务器环境启动 bin 目录下的脚本即可</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bin/linux-x86-64/sonar.sh -h          // 显示所有命令</div><div class="line">bin/linux-x86-64/sonar.sh start       // 启动，默认为9000端口</div></pre></td></tr></table></figure>
 <p>然后在浏览器中访问 <a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a> 即可, 初始化用户名和密码为: admin/admin</p>
+<h2 id="Sonar数据库配置"><a href="#Sonar数据库配置" class="headerlink" title="Sonar数据库配置"></a>Sonar数据库配置</h2><p>Sonar 默认使用的是 Derby 数据库，但这个数据库一般用于评估版本或者测试用途。商用及对数据库要求较高时，建议使用其他数据库。Sonar 可以支持大多数主流关系型数据库（例如 Microsoft SQL Server, MySQL, Oracle, PostgreSQL 等，本文以 MySQL 为例说明如何更改 Sonar 的数据库设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; CREATE USER sonar IDENTIFIED BY &apos;sonar&apos;;</div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;sonar&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;sonar&apos; WITH GRANT OPTION;</div></pre></td></tr></table></figure>
+<p>配置好数据库权限后，修改 sonar.properties 文件配置如下(数据库用户名密码为：sonar/sonar)<br><img src="img/sonar_manual/sonar_manual_1.png" alt="sonar_config"><br>配置后重新启动sonar即可，此次因为需要创建数据库，重启较慢，重启成功后会在数据库中生成sonar相关的表。</p>
+<h2 id="使用Sonar进行代码质量管理"><a href="#使用Sonar进行代码质量管理" class="headerlink" title="使用Sonar进行代码质量管理"></a>使用Sonar进行代码质量管理</h2><p>由于本人主要使用 Java 作为开发工具，主要介绍对 Java 代码代码质量管理，sonar默认是不需要登录权限认证就可以上传代码监测报告的，在生产环境中需要打开用户权限，在[配置]-&gt;[通用配置]-&gt;[权限]中打开即可，如下图所示<br><img src="img/sonar_manual/sonar_manual_2.png" alt="sonar_auth"></p>
+<h3 id="Maven集成Sonar"><a href="#Maven集成Sonar" class="headerlink" title="Maven集成Sonar"></a>Maven集成Sonar</h3><p>Maven 插件会自动把所需数据（如单元测试结果、静态检测结果等）上传到 Sonar 服务器上，需要说明的是，关于 Sonar 的配置并不在每个工程的 pom.xml 文件里，而是在 Maven 的配置文件 settings.xml 文件里，涉及到以下 maven 配置项目:</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sonar.host.url</td>
+<td>sonar服务器地址文件</td>
+<td><a href="http://127.0.0.1:9000" target="_blank" rel="external">http://127.0.0.1:9000</a></td>
+</tr>
+<tr>
+<td>sonar.login</td>
+<td>sonar用户名</td>
+<td>用户或者token(如果利用token则不用密码，推荐这种方式登陆)</td>
+</tr>
+<tr>
+<td>sonar.password</td>
+<td>sonar密码</td>
+<td>admin</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sonar生成登陆token"><a href="#sonar生成登陆token" class="headerlink" title="sonar生成登陆token"></a>sonar生成登陆token</h4><p>为了强化安全，避免直接暴露出分析用户的密码，使用用户令牌来代替用户登陆,如下图<br><img src="img/sonar_manual/sonar_manual_3.png" alt="sonar_auth"></p>
+<h4 id="Maven配置文件修改"><a href="#Maven配置文件修改" class="headerlink" title="Maven配置文件修改"></a>Maven配置文件修改</h4><p>具体配置如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;profile&gt;</div><div class="line">        &lt;id&gt;sonar&lt;/id&gt;</div><div class="line">        &lt;activation&gt;</div><div class="line">            &lt;activeByDefault&gt;<span class="literal">true</span>&lt;/activeByDefault&gt;</div><div class="line">        &lt;/activation&gt;</div><div class="line">        &lt;properties&gt;</div><div class="line">            &lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;</div><div class="line">            &lt;sonar.login&gt;93a87b9d138cd836b65c2c52fc5578fc71270707&lt;/sonar.login&gt;</div><div class="line">        &lt;/properties&gt;</div><div class="line">    &lt;/profile&gt;</div></pre></td></tr></table></figure>
+<p>编译命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mvn clean install</div><div class="line">mvn sonar:sonar</div></pre></td></tr></table></figure>
+<p>将 Soanr 所需要的数据上传到 Sonar 服务器上之后，Sonar 安装的插件会对这些数据进行分析和处理，并以各种方式显示给用户，从而使用户方便地对代码质量的监测和管理。</p>
 
       
     </div>
@@ -529,7 +569,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -540,7 +580,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
@@ -551,7 +591,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">1</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -639,7 +679,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar概述"><span class="nav-number">1.</span> <span class="nav-text">Sonar概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar安装"><span class="nav-number">2.</span> <span class="nav-text">Sonar安装</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar概述"><span class="nav-number">1.</span> <span class="nav-text">Sonar概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar安装"><span class="nav-number">2.</span> <span class="nav-text">Sonar安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar数据库配置"><span class="nav-number">3.</span> <span class="nav-text">Sonar数据库配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Sonar进行代码质量管理"><span class="nav-number">4.</span> <span class="nav-text">使用Sonar进行代码质量管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven集成Sonar"><span class="nav-number">4.1.</span> <span class="nav-text">Maven集成Sonar</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sonar生成登陆token"><span class="nav-number">4.1.1.</span> <span class="nav-text">sonar生成登陆token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven配置文件修改"><span class="nav-number">4.1.2.</span> <span class="nav-text">Maven配置文件修改</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
