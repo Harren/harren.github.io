@@ -100,16 +100,27 @@
 
 
 
-<meta name="description" content="有錢無錢日複日，碼上碼下年複年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TigerDU&#39;s World">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Sonar代码质量分析使用">
+<meta property="og:url" content="http://yoursite.com/2016/03/17/sonar-mannual/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
-<meta property="og:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta property="og:description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouel8vmj21kw0ua0zk.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouqs7woj21d20vkk4l.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fkwouu8uz2j21h00zugr6.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowereo8j21fg0j6dk1.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fkwowhpph2j21kw0ubdnt.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fkwowk9xhsj20x006wwfb.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg">
+<meta property="og:updated_time" content="2017-10-27T06:00:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TigerDU&#39;s World">
-<meta name="twitter:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta name="twitter:title" content="Sonar代码质量分析使用">
+<meta name="twitter:description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
+<meta name="twitter:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouel8vmj21kw0ua0zk.jpg">
 
 
 
@@ -138,13 +149,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/03/17/sonar-mannual/"/>
 
 
 
 
 
-  <title>归档 | TigerDU's World</title>
+  <title>Sonar代码质量分析使用 | TigerDU's World</title>
   
 
 
@@ -179,7 +190,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -317,148 +328,212 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/03/17/sonar-mannual/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TigerDU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TigerDU's World">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Sonar代码质量分析使用</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-03-17T18:47:09+08:00">
+                2016-03-17
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 3 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/2016/03/17/sonar-mannual/" class="leancloud_visitors" data-flag-title="Sonar代码质量分析使用">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/14/ffmpeg-guide/" itemprop="url">
-              
-                <span itemprop="name">FFmpeg命令行转压视频</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-14T14:45:38+08:00"
-              content="2016-10-14" >
-          10-14
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/03/17/sonar-mannual/" itemprop="url">
-              
-                <span itemprop="name">Sonar代码质量分析使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-03-17T18:47:09+08:00"
-              content="2016-03-17" >
-          03-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/02/27/gitlab-ci/" itemprop="url">
-              
-                <span itemprop="name">Gitlab-CI持续集成</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-02-27T13:57:27+08:00"
-              content="2016-02-27" >
-          02-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <h2 id="Sonar概述"><a href="#Sonar概述" class="headerlink" title="Sonar概述"></a>Sonar概述</h2><p>Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。</p>
+<p>与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而可以方便地对不同规模和种类的工程进行代码质量管理。</p>
+<p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouel8vmj21kw0ua0zk.jpg" alt="ffmpeg"><br><a id="more"></a></p>
+<p>在对其他工具的支持方面，Sonar 不仅提供了对 IDE 的支持，可以在 Eclipse 和 IntelliJ IDEA 这些工具里联机查看结果；同时 Sonar 还对大量的持续集成工具提供了接口支持，可以很方便地在持续集成中使用 Sonar。<br>此外，Sonar的插件还可以对 Java 以外的其他编程语言提供支持，对国际化以及报告文档化也有良好的支持。</p>
+<h2 id="Sonar安装"><a href="#Sonar安装" class="headerlink" title="Sonar安装"></a>Sonar安装</h2><p>本文主要介绍 Sonar 的使用方法，直接到<a href="https://www.sonarqube.org" target="_blank" rel="external">Sonar官网</a>下载最近的发型包即可，本文使用的为最新的版本为6.5(推荐使用最新版)，其源代码可以参考<a href="https://github.com/SonarSource/sonarqube" target="_blank" rel="external">github地址</a>。</p>
+<p>下载zip包后，直接解压，然后根据应用服务器环境启动 bin 目录下的脚本即可</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">bin/linux-x86-64/sonar.sh -h          // 显示所有命令</div><div class="line">bin/linux-x86-64/sonar.sh start       // 启动，默认为9000端口</div></pre></td></tr></table></figure>
+<p>然后在浏览器中访问 <a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a> 即可, 初始化用户名和密码为: admin/admin</p>
+<h2 id="Sonar数据库配置"><a href="#Sonar数据库配置" class="headerlink" title="Sonar数据库配置"></a>Sonar数据库配置</h2><p>Sonar 默认使用的是 Derby 数据库，但这个数据库一般用于评估版本或者测试用途。商用及对数据库要求较高时，建议使用其他数据库。Sonar 可以支持大多数主流关系型数据库（例如 Microsoft SQL Server, MySQL, Oracle, PostgreSQL 等，本文以 MySQL 为例说明如何更改 Sonar 的数据库设置:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; CREATE USER sonar IDENTIFIED BY &apos;sonar&apos;;</div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;sonar&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;sonar&apos; WITH GRANT OPTION;</div></pre></td></tr></table></figure>
+<p>配置好数据库权限后，修改 sonar.properties 文件配置如下(数据库用户名密码为：sonar/sonar)<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg" alt="sonar_config"><br>配置后重新启动sonar即可，此次因为需要创建数据库，重启较慢，重启成功后会在数据库中生成sonar相关的表。</p>
+<h2 id="使用Sonar进行代码质量管理"><a href="#使用Sonar进行代码质量管理" class="headerlink" title="使用Sonar进行代码质量管理"></a>使用Sonar进行代码质量管理</h2><p>由于本人主要使用 Java 作为开发工具，主要介绍对 Java 代码代码质量管理，sonar默认是不需要登录权限认证就可以上传代码监测报告的，在生产环境中需要打开用户权限，在[配置]-&gt;[通用配置]-&gt;[权限]中打开即可，如下图所示<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg" alt="sonar_auth"></p>
+<h3 id="Maven集成Sonar"><a href="#Maven集成Sonar" class="headerlink" title="Maven集成Sonar"></a>Maven集成Sonar</h3><p>Maven 插件会自动把所需数据（如单元测试结果、静态检测结果等）上传到 Sonar 服务器上，需要说明的是，关于 Sonar 的配置并不在每个工程的 pom.xml 文件里，而是在 Maven 的配置文件 settings.xml 文件里，涉及到以下 maven 配置项目:</p>
+<table>
+<thead>
+<tr>
+<th>配置项</th>
+<th>作用</th>
+<th>默认值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>sonar.host.url</td>
+<td>sonar服务器地址文件</td>
+<td><a href="http://127.0.0.1:9000" target="_blank" rel="external">http://127.0.0.1:9000</a></td>
+</tr>
+<tr>
+<td>sonar.login</td>
+<td>sonar用户名</td>
+<td>用户或者token(如果利用token则不用密码，推荐这种方式登陆)</td>
+</tr>
+<tr>
+<td>sonar.password</td>
+<td>sonar密码</td>
+<td>admin</td>
+</tr>
+</tbody>
+</table>
+<h4 id="sonar生成登陆token"><a href="#sonar生成登陆token" class="headerlink" title="sonar生成登陆token"></a>sonar生成登陆token</h4><p>为了强化安全，避免直接暴露出分析用户的密码，使用用户令牌来代替用户登陆,如下图<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouqs7woj21d20vkk4l.jpg" alt="sonar_auth"></p>
+<h4 id="Maven配置文件修改"><a href="#Maven配置文件修改" class="headerlink" title="Maven配置文件修改"></a>Maven配置文件修改</h4><p>具体配置如下:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;profile&gt;</div><div class="line">        &lt;id&gt;sonar&lt;/id&gt;</div><div class="line">        &lt;activation&gt;</div><div class="line">            &lt;activeByDefault&gt;<span class="literal">true</span>&lt;/activeByDefault&gt;</div><div class="line">        &lt;/activation&gt;</div><div class="line">        &lt;properties&gt;</div><div class="line">            &lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;</div><div class="line">            &lt;sonar.login&gt;93a87b9d138cd836b65c2c52fc5578fc71270707&lt;/sonar.login&gt;</div><div class="line">        &lt;/properties&gt;</div><div class="line">    &lt;/profile&gt;</div></pre></td></tr></table></figure>
+<p>编译命令如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mvn clean install</div><div class="line">mvn sonar:sonar</div></pre></td></tr></table></figure>
+<p>将 Soanr 所需要的数据上传到 Sonar 服务器上之后，Sonar 安装的插件会对这些数据进行分析和处理，并以各种方式显示给用户，从而使用户方便地对代码质量的监测和管理，之后可以在sonar服务器得到上此次提交代码分析的结果信息，包括代码覆盖率等信息。<br><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fkwouu8uz2j21h00zugr6.jpg" alt="sonar_auth"></p>
+<h3 id="Sonar配置Gitlab可持续集成"><a href="#Sonar配置Gitlab可持续集成" class="headerlink" title="Sonar配置Gitlab可持续集成"></a>Sonar配置Gitlab可持续集成</h3><h4 id="自动化脚本集成"><a href="#自动化脚本集成" class="headerlink" title="自动化脚本集成"></a>自动化脚本集成</h4><p>如果对项目有持续即成的需要，同时项目是利用gitlab进行托管，给项目配置好runner，则需要在项目目录下建.gitlab-ci.yml文件来自定义命令，具体参照<a href="https://segmentfault.com/a/1190000006120164" target="_blank" rel="external">gitlab-ci使用</a>简介 ，这样每次提交的时候都会自动运行脚本，并将生成的报告直接上传到服务器，下面提供一个参考脚本如下</p>
+<figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 定义 stages</span></div><div class="line"><span class="attr">stages:</span></div><div class="line"><span class="bullet"> -</span> <span class="string">review</span></div><div class="line"><span class="bullet"> -</span> <span class="string">analyze</span></div><div class="line"><span class="comment"># 定义 review</span></div><div class="line"><span class="attr">job1:</span></div><div class="line"><span class="attr"> stage:</span> <span class="string">review</span></div><div class="line"><span class="attr"> script:</span></div><div class="line"><span class="bullet"> -</span> <span class="string">/usr/local/sbin/code_analyze</span> <span class="bullet">--preview</span>    <span class="comment">#这条命令主要是将代码分析的信息输出到gitlab的Discussions，只会在分支上运行</span></div><div class="line"><span class="attr"> except:</span></div><div class="line"><span class="bullet"> -</span> <span class="string">master</span></div><div class="line"><span class="comment"># 定义 analyze</span></div><div class="line"><span class="attr">job2:</span></div><div class="line"><span class="attr"> stage:</span> <span class="string">analyze</span></div><div class="line"><span class="attr"> script:</span></div><div class="line"><span class="bullet"> -</span> <span class="string">/usr/local/sbin/code_analyze</span>             <span class="comment">#这条命令主要是将代码分析的信息同步到sonar服务器，只针对master</span></div><div class="line"><span class="attr"> only:</span></div><div class="line"><span class="bullet"> -</span> <span class="string">master</span></div></pre></td></tr></table></figure>
+<p>code_analyze为脚本文件，主要是对git项目内容进行打包并将相应的代码分析报告上传到sonar服务器，其内容如下</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="meta">#!/bin/bash</span></div><div class="line"><span class="built_in">set</span> -e</div><div class="line"><span class="built_in">echo</span> <span class="string">"test"</span></div><div class="line"><span class="keyword">if</span> [ <span class="string">"<span class="variable">$1</span>"</span> = <span class="string">"--preview"</span> ];<span class="keyword">then</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;CI_BUILD_REF&#125;</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;CI_BUILD_REF_NAME&#125;</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;CI_PROJECT_DIR&#125;</span></div><div class="line">    <span class="built_in">echo</span> <span class="variable">$&#123;CI_PROJECT_ID&#125;</span></div><div class="line">	sonar_prop=<span class="string">"-Dsonar.issuesReport.console.enable=true -Dsonar.analysis.mode=preview  -Dsonar.preview.excludePlugins=issueassign,scmstats -Dsonar.gitlab.commit_sha=<span class="variable">$&#123;CI_BUILD_REF&#125;</span> -Dsonar.gitlab.ref=<span class="variable">$&#123;CI_BUILD_REF_NAME&#125;</span> -Dsonar.gitlab.project_id=<span class="variable">$&#123;CI_PROJECT_ID&#125;</span>"</span></div><div class="line">    <span class="keyword">if</span> [ -f <span class="string">"gradlew"</span> ]; <span class="keyword">then</span></div><div class="line">	    ./gradlew clean check sonarqube <span class="variable">$sonar_prop</span></div><div class="line">    <span class="keyword">else</span></div><div class="line">	    mvn --batch-mode clean verify sonar:sonar <span class="variable">$sonar_prop</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line"><span class="keyword">else</span></div><div class="line">	sonar_prop=<span class="string">"-Dsonar.preview.excludePlugins=gitlab"</span></div><div class="line">	<span class="keyword">if</span> [ -f <span class="string">"gradlew"</span> ]; <span class="keyword">then</span></div><div class="line">		./gradlew clean check sonarqube <span class="variable">$sonar_prop</span></div><div class="line">	<span class="keyword">else</span></div><div class="line">        <span class="comment">#mvn clean org.codehaus.mojo:cobertura-maven-plugin:2.7:cobertura -Dcobertura.report.format=xml -Dcobertura.aggregate=true</span></div><div class="line">		mvn --batch-mode verify sonar:sonar <span class="variable">$sonar_prop</span></div><div class="line">    <span class="keyword">fi</span></div><div class="line"><span class="keyword">fi</span></div></pre></td></tr></table></figure>
+<h4 id="Sonar写入Gitlab-Discussion"><a href="#Sonar写入Gitlab-Discussion" class="headerlink" title="Sonar写入Gitlab Discussion"></a>Sonar写入Gitlab Discussion</h4><p>如果希望直接在 gitlab 的每次 Merge_requesrs 中在 gitlab 的 Discussion 中显示出此次代码分析的结果，效果如下<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowereo8j21fg0j6dk1.jpg" alt="sonar_auth"></p>
+<p>首先，需要gitlab给sonar授权，在 gitlab 中 ［User Settings］中生成 Access Tokens<br><img src="http://wx2.sinaimg.cn/mw1024/78d85414ly1fkwowhpph2j21kw0ubdnt.jpg" alt="sonar_auth"></p>
+<p>然后在 sonar 的配置页写入token, 如下，由于申请的 token 的作用域为 api, sonar里面配置 scope 为 api<br><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fkwowk9xhsj20x006wwfb.jpg" alt="sonar_auth"><br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg" alt="sonar_auth"></p>
+<p>配置完后，在gitlab上之执行Merge Request时候会出发自动构建，同时生成相应的isscus。</p>
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="https://docs.sonarqube.org/display/SONAR/Documentation" target="_blank" rel="external">Sonar官方文档</a></li>
+<li><a href="https://docs.sonarqube.org/display/PLUG/Plugin+Library" target="_blank" rel="external">Sonar插件下载地址</a></li>
+</ol>
 
       
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/02/27/gitlab-ci/" rel="next" title="Gitlab-CI持续集成">
+                <i class="fa fa-chevron-left"></i> Gitlab-CI持续集成
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/10/14/ffmpeg-guide/" rel="prev" title="FFmpeg命令行转压视频">
+                FFmpeg命令行转压视频 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -466,6 +541,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -486,8 +565,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c"
@@ -603,6 +691,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar概述"><span class="nav-number">1.</span> <span class="nav-text">Sonar概述</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar安装"><span class="nav-number">2.</span> <span class="nav-text">Sonar安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sonar数据库配置"><span class="nav-number">3.</span> <span class="nav-text">Sonar数据库配置</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Sonar进行代码质量管理"><span class="nav-number">4.</span> <span class="nav-text">使用Sonar进行代码质量管理</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Maven集成Sonar"><span class="nav-number">4.1.</span> <span class="nav-text">Maven集成Sonar</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#sonar生成登陆token"><span class="nav-number">4.1.1.</span> <span class="nav-text">sonar生成登陆token</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Maven配置文件修改"><span class="nav-number">4.1.2.</span> <span class="nav-text">Maven配置文件修改</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sonar配置Gitlab可持续集成"><span class="nav-number">4.2.</span> <span class="nav-text">Sonar配置Gitlab可持续集成</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#自动化脚本集成"><span class="nav-number">4.2.1.</span> <span class="nav-text">自动化脚本集成</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Sonar写入Gitlab-Discussion"><span class="nav-number">4.2.2.</span> <span class="nav-text">Sonar写入Gitlab Discussion</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">5.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -715,11 +819,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
