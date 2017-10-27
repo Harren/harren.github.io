@@ -108,7 +108,7 @@
 <meta property="og:description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouel8vmj21kw0ua0zk.jpg">
-<meta property="og:image" content="http://wx3.sinaimg.cnmw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouqs7woj21d20vkk4l.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fkwouu8uz2j21h00zugr6.jpg">
@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fkwowhpph2j21kw0ubdnt.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fkwowk9xhsj20x006wwfb.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg">
-<meta property="og:updated_time" content="2017-10-27T04:40:43.000Z">
+<meta property="og:updated_time" content="2017-10-27T05:13:44.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Sonar代码质量分析使用">
 <meta name="twitter:description" content="Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而">
@@ -430,7 +430,7 @@
 <p>然后在浏览器中访问 <a href="http://localhost:9000" target="_blank" rel="external">http://localhost:9000</a> 即可, 初始化用户名和密码为: admin/admin</p>
 <h2 id="Sonar数据库配置"><a href="#Sonar数据库配置" class="headerlink" title="Sonar数据库配置"></a>Sonar数据库配置</h2><p>Sonar 默认使用的是 Derby 数据库，但这个数据库一般用于评估版本或者测试用途。商用及对数据库要求较高时，建议使用其他数据库。Sonar 可以支持大多数主流关系型数据库（例如 Microsoft SQL Server, MySQL, Oracle, PostgreSQL 等，本文以 MySQL 为例说明如何更改 Sonar 的数据库设置:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">mysql&gt; CREATE USER sonar IDENTIFIED BY &apos;sonar&apos;;</div><div class="line">mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;sonar&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;sonar&apos; WITH GRANT OPTION;</div></pre></td></tr></table></figure>
-<p>配置好数据库权限后，修改 sonar.properties 文件配置如下(数据库用户名密码为：sonar/sonar)<br><img src="http://wx3.sinaimg.cnmw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg" alt="sonar_config"><br>配置后重新启动sonar即可，此次因为需要创建数据库，重启较慢，重启成功后会在数据库中生成sonar相关的表。</p>
+<p>配置好数据库权限后，修改 sonar.properties 文件配置如下(数据库用户名密码为：sonar/sonar)<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg" alt="sonar_config"><br>配置后重新启动sonar即可，此次因为需要创建数据库，重启较慢，重启成功后会在数据库中生成sonar相关的表。</p>
 <h2 id="使用Sonar进行代码质量管理"><a href="#使用Sonar进行代码质量管理" class="headerlink" title="使用Sonar进行代码质量管理"></a>使用Sonar进行代码质量管理</h2><p>由于本人主要使用 Java 作为开发工具，主要介绍对 Java 代码代码质量管理，sonar默认是不需要登录权限认证就可以上传代码监测报告的，在生产环境中需要打开用户权限，在[配置]-&gt;[通用配置]-&gt;[权限]中打开即可，如下图所示<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg" alt="sonar_auth"></p>
 <h3 id="Maven集成Sonar"><a href="#Maven集成Sonar" class="headerlink" title="Maven集成Sonar"></a>Maven集成Sonar</h3><p>Maven 插件会自动把所需数据（如单元测试结果、静态检测结果等）上传到 Sonar 服务器上，需要说明的是，关于 Sonar 的配置并不在每个工程的 pom.xml 文件里，而是在 Maven 的配置文件 settings.xml 文件里，涉及到以下 maven 配置项目:</p>
 <table>
