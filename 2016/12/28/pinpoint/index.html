@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java, Spring" />
+  <meta name="keywords" content="性能监控," />
 
 
 
@@ -100,16 +100,22 @@
 
 
 
-<meta name="description" content="有錢無錢日複日，碼上碼下年複年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TigerDU&#39;s World">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+<meta name="description" content="Pinpoint是一个开源的APM(Application Performance Management/应用性能管理)工具，用于基于Java的大规模分布式系统，思路基于google Dapper，用于基于java的大规模分布式系统，通过跟踪分布式应用之间的调用来提供解决方案，以帮助分析系统的总体结构和内部模块之间如何相互联系，其开发的初衷主要基于以下思考元素。">
+<meta name="keywords" content="性能监控">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Pinpoint简单介绍以及应用实例">
+<meta property="og:url" content="http://yoursite.com/2016/12/28/pinpoint/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
-<meta property="og:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta property="og:description" content="Pinpoint是一个开源的APM(Application Performance Management/应用性能管理)工具，用于基于Java的大规模分布式系统，思路基于google Dapper，用于基于java的大规模分布式系统，通过跟踪分布式应用之间的调用来提供解决方案，以帮助分析系统的总体结构和内部模块之间如何相互联系，其开发的初衷主要基于以下思考元素。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fl64c51y2dj21ct0o5afl.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fl64t0zuysj21b70n843m.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fl64t43mu4j21e70l0k0k.jpg">
+<meta property="og:updated_time" content="2017-11-04T08:38:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TigerDU&#39;s World">
-<meta name="twitter:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta name="twitter:title" content="Pinpoint简单介绍以及应用实例">
+<meta name="twitter:description" content="Pinpoint是一个开源的APM(Application Performance Management/应用性能管理)工具，用于基于Java的大规模分布式系统，思路基于google Dapper，用于基于java的大规模分布式系统，通过跟踪分布式应用之间的调用来提供解决方案，以帮助分析系统的总体结构和内部模块之间如何相互联系，其开发的初衷主要基于以下思考元素。">
+<meta name="twitter:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fl64c51y2dj21ct0o5afl.jpg">
 
 
 
@@ -138,13 +144,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/12/28/pinpoint/"/>
 
 
 
 
 
-  <title>归档 | TigerDU's World</title>
+  <title>Pinpoint简单介绍以及应用实例 | TigerDU's World</title>
   
 
 
@@ -179,7 +185,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -317,185 +323,175 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block archive">
-    <div id="posts" class="posts-collapse">
-      <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-      <span class="archive-page-counter">
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/28/pinpoint/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TigerDU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TigerDU's World">
+    </span>
+
+    
+      <header class="post-header">
+
         
         
+          <h1 class="post-title" itemprop="name headline">Pinpoint简单介绍以及应用实例</h1>
         
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2016-12-28T14:37:03+08:00">
+                2016-12-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
           
-        
-        嗯..! 目前共计 4 篇日志。 继续努力。
-      </span>
 
-      
-
-        
-        
-        
-
-        
           
-          <div class="collection-title">
-            <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
-          </div>
-        
-        
+            
+          
 
-        
+          
+          
+             <span id="/2016/12/28/pinpoint/" class="leancloud_visitors" data-flag-title="Pinpoint简单介绍以及应用实例">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/28/pinpoint/" itemprop="url">
-              
-                <span itemprop="name">Pinpoint简单介绍以及应用实例</span>
-              
-            </a>
-        
-      </h2>
+          
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-28T14:37:03+08:00"
-              content="2016-12-28" >
-          12-28
-        </time>
-      </div>
+          
 
-    </header>
-  </article>
+        </div>
+      </header>
+    
 
-
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/12/17/sonar-mannual/" itemprop="url">
-              
-                <span itemprop="name">Sonar代码质量分析使用</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-12-17T18:47:09+08:00"
-              content="2016-12-17" >
-          12-17
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
       
 
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/11/27/gitlab-ci/" itemprop="url">
-              
-                <span itemprop="name">Gitlab-CI持续集成</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-11-27T13:57:27+08:00"
-              content="2016-11-27" >
-          11-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
+      
+        <p>Pinpoint是一个开源的APM(Application Performance Management/应用性能管理)工具，用于基于Java的大规模分布式系统，思路基于google Dapper，用于基于java的大规模分布式系统，通过跟踪分布式应用之间的调用来提供解决方案，以帮助分析系统的总体结构和内部模块之间如何相互联系，其开发的初衷主要基于以下思考元素。<br><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fl64c51y2dj21ct0o5afl.jpg" alt="pinpoint"><br><a id="more"></a></p>
+<h2 id="系统架构"><a href="#系统架构" class="headerlink" title="系统架构"></a>系统架构</h2><p>Point是基于Google Dapper，主要有三个组件：</p>
+<ul>
+<li>pinpoint-collector，主要手收集从agent端传来的数据信息并存储</li>
+<li>pinpoint-web，主要将collector的数据可视化的展示给用户</li>
+<li>pinpoint-agent，用于在客户段进行埋点来获取到监控信息</li>
+</ul>
+<p>同时使用Hbase作为存储，point主要特点如下图，包括以下几点</p>
+<ul>
+<li>分布式事务跟踪，跟踪跨越分布式应用的消息</li>
+<li>自动检测应用拓扑，帮助你搞清楚应用的架构</li>
+<li>水平拓展以便支持大规模服务器集群</li>
+<li>提供代码级别的可见性以便轻松定位失败点和瓶颈</li>
+<li>使用字节码增强技术，添加新功能无需修改代码(AOP技术)</li>
+</ul>
+<p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fl64t0zuysj21b70n843m.jpg" alt="pinpoint" title="京津冀"></p>
+<p>在比较复杂的系统中利用pinpoint可以有效的看到系统的瓶颈，其常用功能如下所示：</p>
+<p><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fl64t43mu4j21e70l0k0k.jpg" alt="pinpoint"></p>
 
       
-
-        
-        
-        
-
-        
-        
-
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2016/10/14/ffmpeg-guide/" itemprop="url">
-              
-                <span itemprop="name">FFmpeg命令行转压视频</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-14T14:45:38+08:00"
-              content="2016-10-14" >
-          10-14
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-      
-
     </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/性能监控/" rel="tag"># 性能监控</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/12/17/sonar-mannual/" rel="next" title="Sonar代码质量分析使用">
+                <i class="fa fa-chevron-left"></i> Sonar代码质量分析使用
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -503,6 +499,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -523,8 +523,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c"
@@ -640,6 +649,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#系统架构"><span class="nav-number">1.</span> <span class="nav-text">系统架构</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -752,11 +777,9 @@
   
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
 
 
   
