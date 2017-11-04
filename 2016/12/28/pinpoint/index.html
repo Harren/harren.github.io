@@ -117,7 +117,7 @@
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fl65ryql33j21990mzgom.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fl65rvfmpsj21520nete5.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fl65s2cda8j21eu0r0k0v.jpg">
-<meta property="og:updated_time" content="2017-11-04T09:34:28.000Z">
+<meta property="og:updated_time" content="2017-11-04T09:36:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pinpoint简单介绍以及应用实例">
 <meta name="twitter:description" content="Pinpoint是一个开源的APM(Application Performance Management/应用性能管理)工具，用于基于Java的大规模分布式系统，思路基于google Dapper，用于基于java的大规模分布式系统，通过跟踪分布式应用之间的调用来提供解决方案，以帮助分析系统的总体结构和内部模块之间如何相互联系，其开发的初衷主要基于以下思考元素。">
@@ -458,7 +458,7 @@
 <p>SpanId 和 ParentSpanId 是64位长度的整型，由于这个数字是任意生成的，但是考虑到值的范围从 -2^64 ~ 2^64， 不太可能发生冲突，如果发生冲突，系统会让开发者知道发生了什么，而不是去解决冲突。</p>
 <h3 id="字节码增强"><a href="#字节码增强" class="headerlink" title="字节码增强"></a>字节码增强</h3><p>实现分布式事务跟踪的实现方法之一是开发人员自己修改代码，在发生rpc调用的地方开发人员自己添加标签信息，这就需要修改到项目代码，对代码有一定的侵入性，为了解决这个问题，pinpoint中使用了字节码增强技术，由 pinpoint-agent 干预发起rpc的代码来实现自动处理标签信息，如下图</p>
 <p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fl65ryql33j21990mzgom.jpg" alt="" title="图7 字节码增强"></p>
-<p>在程序编译阶段通过反射方式注入代码来实现无侵入的埋点，这种代码跟踪方式于手工跟踪对比如下图7所示</p>
+<p>在程序编译阶段通过反射方式注入代码来实现无侵入的埋点，这种代码跟踪方式于手工跟踪对比如下图8所示</p>
 <p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1fl65rvfmpsj21520nete5.jpg" alt="" title="图8 性能对比"></p>
 <p>只需要在项目启动的过程中加入 agent 即可实现性能监控</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">javaagent:$AGENR_PATH/pinpoint-bootstrap.jar</div><div class="line">-Dpinpoint.agentId=&lt;Agent’s UniqueId&gt;</div><div class="line">-Dpinpoint.applicationName=&lt;the name of service&gt;</div></pre></td></tr></table></figure>
