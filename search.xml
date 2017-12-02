@@ -1,9 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[互联网DSP广告系统及关键技术分析]]></title>
+    <url>%2F2017%2F01%2F16%2Fdsp-infrastructure%2F</url>
+    <content type="text"><![CDATA[在互联网广告产业中，DSP是一个系统，也是一种在线广告平台。它服务于广告主，帮助广告主在互联网或者移动互联网上进行广告投放，DSP可以使广告主更简单便捷地遵循统一的竞价和反馈方式，对位于多家广告交易平台的在线广告,以合理的价格实时购买高质量的广告库存。 DSP让广告主可以通过一个统一的接口来管理一个或者多个Ad Exchange账号，甚至DSP可以帮助广告主来管理Ad Exchange的账号，提供全方位的服务。 DSP的特点程序化购买DSP系统架构RTB投放引擎架构DMP数据处理架构用户画像广告行业的反作弊]]></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
+      <tags>
+        <tag>高可用架构</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[xmpp协议解析与使用]]></title>
+    <url>%2F2017%2F01%2F07%2Fxmpp%2F</url>
+    <content type="text"><![CDATA[XMPP 是基于 XML 的协议，用于即时消息( IM )以及在线现场探测。最初, XMPP 作为一个框架开发, 目标是支持企业环境内的即时消息传递和联机状态应用程序 。当时的即时消息传递网络是私有的,不适合企业使用 XMPP 前身是 Jabber ( 1998 年) ,是一个开源组织定义的网络即时通信协议XMPP 是一个分散型通信网络 ,这意味着,只要网络基础设施允许,任何XMPP 用户都可以向其他任何 XMPP 用户传递消息。多个 XMPP 服务器也可以通过一个专门的“服务器 - 服务器 “协议相互通信,提供了创建分散型社交网络和协作框架的可能性。注意，分属于不同server的client之间要通信的话，中间不能再经过其他server，这2个server必须直接通信。对于XMPP来说，server不能象email server那样，中间可以经过若干个server才能把邮件发送到目的地 XMPP协议优缺点 优点 开放 标准( XMPP 的技术规格已被定义在 RFC 3920 及 RFC 3921 ) 证实可用 分散 安全 可扩展 缺点 数据负载过重 没有二进制传输 为什么选择XMPP 1.通信原语 Message Stanza、Presence Stanza和IQ Stanza(IQ节) 2.XMPP协议引入了XML Stream(XML流)和XML Stanza(XML节) 伸缩架构 负载均衡：是通过负载策略分发客户端请求，后端的连接管理器退出服务后，请求不在分发给本台连接管理器。 连接管理器：是保存客户端连接，实现系统用户并发上的可伸缩，连接服务器不包含业务逻辑代码它的功能只是负载保持客户连接和转发客户请求。 业务服务器：业务逻辑都实现在业务服务器包括用户验证模块、用户会话模块、在线状态模块、路由模块、文本消息模块等。 组件服务器：是用于扩展非即时通讯本身核心功能的业务，是通过业务服务器包路由过来的客户端请求，并通过组件服务器应答客户端。 代理服务器：是负责适配不同即时通讯协议实现不同即时通讯的互联。 为什么使用openfireA、Openfire为Java开源项目 B、采用开放的XMPP协议 C、有多种针对不通系统的版本 D、使用Socket通讯 E、 单台服务器可支持上万并发用户,搭建分布式云服务器可轻松提供大量并发用户。 F、 Socket长连接 G、服务器稳定小 H、提供接口，可自己开发插件 JabberD2组件 路由(router):路由器是jabberd的核心组件，它从其他组件接受信息，并把各个组件间传递xml数据包 服务器－服务器(s2s):S2S控制和其他服务器的通信，并实现服务器回呼和远程jabber服务器的验证 分解器(resolver):分解器是为支持S2S工作的.他为S2S回呼中验证部分提供分解主机名服务 会话管理(Session Manager):SM(会话管理)实现了即时消息的大部分 - 消息传送 - 状态管理(Presence) - 帐户管理(Rosters) - 订阅(Subscriptions) 客户端－服务器端(c2s): C2S组件控制与客户端的通信 - 和jabbar客户端连接 - 传递包给SM - 验证客户端 - 注册用户 - 同SM引发活动 数据控制jabberd 使用数据控制(data handing)的概念以便适应各类数据处理包。数据控制(data handling)的核心是收集器(Collection)对象概念。每个收集器(Collection)都有类型(Type)和拥有者(Owner)两个属性.类型(Type)指明什么类型的数据正在被处理,如,队列(queue),vcard,名册条目(roster-item). 拥有者(Owner)表明谁拥有这个收集器(collection).对于和用户相关的数据，拥有者(Owner)是jabber ID(JID). JIDjid为客户端的唯一性标识id，{$user}@{$host}组成一个唯一性jid／{$work}，根据work用于将数据发送到与他的工作相关的工具 参考文献 XMPP权威指南 XMPP-RFC3920]]></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
+      <tags>
+        <tag>通信协议</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Pinpoint简单介绍以及应用实例]]></title>
     <url>%2F2016%2F12%2F28%2Fpinpoint%2F</url>
     <content type="text"><![CDATA[Pinpoint是一个开源的APM(Application Performance Management/应用性能管理)工具，用于基于Java的大规模分布式系统，思路基于google Dapper，用于基于java的大规模分布式系统，通过跟踪分布式应用之间的调用来提供解决方案，以帮助分析系统的总体结构和内部模块之间如何相互联系，其开发的初衷主要基于以下思考元素。 系统架构Point是基于Google Dapper，主要有三个组件： pinpoint-collector，日志收集器模块，主要手收集从agent端传来的数据信息并存储 pinpoint-web，控制台视图模块，主要将collector的数据可视化的展示给用户 pinpoint-agent，日志代理客户端模块，用于在客户段进行埋点来获取到监控信息 同时使用Hbase作为存储，point主要特点如下图，包括以下几点 分布式事务跟踪，跟踪跨越分布式应用的消息 自动检测应用拓扑，帮助你搞清楚应用的架构 水平拓展以便支持大规模服务器集群 提供代码级别的可见性以便轻松定位失败点和瓶颈 使用字节码增强技术，添加新功能无需修改代码(AOP技术) 在比较复杂的系统中利用pinpoint可以有效的看到系统的瓶颈，其常用功能如下所示： 主要技术Pinpoint的主要技术设计到分布式事务跟踪，主要分为两个主要技术：事务追踪技术以及字节码增强技术来实现无侵入式的性能监控 数据结构Pinpoint跟踪单个事务的分布式请求，分布式追踪系统的核心是在分布式系统中识别在Node1中处理的消息和在Node2中出的消息之间的关系。HTTP请求中的HTTP header中为消息添加一个标签信息并使用这个标签跟踪消息，即TraceID，Pinpoint中，核心数据结构由Span，Trace和TraceID组成: Span:跟踪的基本单元，包含一个TraceId Trace:多个Span集合，由关联的RPC（Spans）组成，同一个trace共享一个相同的TransactionID,Trace通过SpanId和ParentSpanId整理继承树结构。 TraceID:由 TransactionId, SpanId(64位长度的整型), 和 ParentSpanId(64位长度的整型) 组成的key的集合. TransactionId 指明消息ID，而SpanId 和 ParentSpanId 表示RPC的父-子关系 TransactionId：AgentIDs(建议使用hostname，服务器IP),JVM启动时间以及序列号组成 生成唯一性ID的方法，通过中央key服务器来生成key。如果实现这个模式，可能导致性能问题和网络错误，因此，大量生成key被考虑作为备选。 Trace行为下图5描述在4个节点之间进行3次rpc调用： 上图中，TransactionID(TxId) 体现了三次不同的rpc作为单个事务被相互关联，由于 TransactionID 本身不能精确描述rpc之间的关系，为了识别 rpc 之间的关系，需要 SpanId 和 ParentSpanId， 假设一个节点是 Tomcat， 可以将 SpanId 想象为出力http请求的线程，ParentSpanId 代表发起这个rpc调用的 SpanId。 SpanId 和 ParentSpanId 是64位长度的整型，由于这个数字是任意生成的，但是考虑到值的范围从 -2^64 ~ 2^64， 不太可能发生冲突，如果发生冲突，系统会让开发者知道发生了什么，而不是去解决冲突。 字节码增强实现分布式事务跟踪的实现方法之一是开发人员自己修改代码，在发生rpc调用的地方开发人员自己添加标签信息，这就需要修改到项目代码，对代码有一定的侵入性，为了解决这个问题，pinpoint中使用了字节码增强技术，由 pinpoint-agent 干预发起rpc的代码来实现自动处理标签信息，如下图 在程序编译阶段通过反射方式注入代码来实现无侵入的埋点，这种代码跟踪方式于手工跟踪对比如下图8所示 只需要在项目启动的过程中加入 agent 即可实现性能监控 123javaagent:$AGENR_PATH/pinpoint-bootstrap.jar-Dpinpoint.agentId=&lt;Agent’s UniqueId&gt;-Dpinpoint.applicationName=&lt;the name of service&gt; 应用分析阐述point为每个方法做了什么： 请求到达tomcatA时，Pinpoint agent产生TraceID 从springMVC控制器记录数据 插入HttpClient.execute()方法的调用并在HttpGet中配置TraceId 传输打好tag的请求到tomcatB 从springmvc控制器中记录数据并完成请求 从tomcatB回来的请求完成时，pp-agent发送跟踪数据到pp-collector存储在hbase 在对tomcatB的http调用结束后，tomcatA的请求也完成，pp-agent发送跟踪数据到pp-collector存储在HBase中 UI从Hbase中读取数据并通过排序树来创建调用栈 整体的应用分析如下图所示 参考文献 Pinpoint源码 Techinal Overview Of Pinpoint (包含中文手册)]]></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
       <tags>
         <tag>性能监控</tag>
       </tags>
@@ -12,21 +37,44 @@
     <title><![CDATA[Sonar代码质量分析使用]]></title>
     <url>%2F2016%2F12%2F17%2Fsonar-mannual%2F</url>
     <content type="text"><![CDATA[Sonar概述Sonar是一个用于代码质量管理的开放平台。通过插件机制，Sonar 可以集成不同的测试工具，代码分析工具，以及持续集成工具。 与持续集成工具（例如 Hudson/Jenkins 等）不同，Sonar 并不是简单地把不同的代码检查工具结果（例如 FindBugs，PMD 等）直接显示在 Web 页面上，而是通过不同的插件对这些结果进行再加工处理，通过量化的方式度量代码质量的变化，从而可以方便地对不同规模和种类的工程进行代码质量管理。 在对其他工具的支持方面，Sonar 不仅提供了对 IDE 的支持，可以在 Eclipse 和 IntelliJ IDEA 这些工具里联机查看结果；同时 Sonar 还对大量的持续集成工具提供了接口支持，可以很方便地在持续集成中使用 Sonar。此外，Sonar的插件还可以对 Java 以外的其他编程语言提供支持，对国际化以及报告文档化也有良好的支持。 Sonar安装本文主要介绍 Sonar 的使用方法，直接到Sonar官网下载最近的发型包即可，本文使用的为最新的版本为6.5(推荐使用最新版)，其源代码可以参考github地址。 下载zip包后，直接解压，然后根据应用服务器环境启动 bin 目录下的脚本即可 12bin/linux-x86-64/sonar.sh -h // 显示所有命令bin/linux-x86-64/sonar.sh start // 启动，默认为9000端口 然后在浏览器中访问 http://localhost:9000 即可, 初始化用户名和密码为: admin/admin Sonar数据库配置Sonar 默认使用的是 Derby 数据库，但这个数据库一般用于评估版本或者测试用途。商用及对数据库要求较高时，建议使用其他数据库。Sonar 可以支持大多数主流关系型数据库（例如 Microsoft SQL Server, MySQL, Oracle, PostgreSQL 等，本文以 MySQL 为例说明如何更改 Sonar 的数据库设置: 12mysql&gt; CREATE USER sonar IDENTIFIED BY &apos;sonar&apos;;mysql&gt; GRANT ALL PRIVILEGES ON *.* TO &apos;sonar&apos;@&apos;localhost&apos; IDENTIFIED BY &apos;sonar&apos; WITH GRANT OPTION; 配置好数据库权限后，修改 sonar.properties 文件配置如下(数据库用户名密码为：sonar/sonar)配置后重新启动sonar即可，此次因为需要创建数据库，重启较慢，重启成功后会在数据库中生成sonar相关的表。 使用Sonar进行代码质量管理由于本人主要使用 Java 作为开发工具，主要介绍对 Java 代码代码质量管理，sonar默认是不需要登录权限认证就可以上传代码监测报告的，在生产环境中需要打开用户权限，在[配置]-&gt;[通用配置]-&gt;[权限]中打开即可，如下图所示 Maven集成SonarMaven 插件会自动把所需数据（如单元测试结果、静态检测结果等）上传到 Sonar 服务器上，需要说明的是，关于 Sonar 的配置并不在每个工程的 pom.xml 文件里，而是在 Maven 的配置文件 settings.xml 文件里，涉及到以下 maven 配置项目: 配置项 作用 默认值 sonar.host.url sonar服务器地址文件 http://127.0.0.1:9000 sonar.login sonar用户名 用户或者token(如果利用token则不用密码，推荐这种方式登陆) sonar.password sonar密码 admin sonar生成登陆token为了强化安全，避免直接暴露出分析用户的密码，使用用户令牌来代替用户登陆,如下图 Maven配置文件修改具体配置如下: 12345678910&lt;profile&gt; &lt;id&gt;sonar&lt;/id&gt; &lt;activation&gt; &lt;activeByDefault&gt;true&lt;/activeByDefault&gt; &lt;/activation&gt; &lt;properties&gt; &lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt; &lt;sonar.login&gt;93a87b9d138cd836b65c2c52fc5578fc71270707&lt;/sonar.login&gt; &lt;/properties&gt; &lt;/profile&gt; 编译命令如下 12mvn clean installmvn sonar:sonar 将 Soanr 所需要的数据上传到 Sonar 服务器上之后，Sonar 安装的插件会对这些数据进行分析和处理，并以各种方式显示给用户，从而使用户方便地对代码质量的监测和管理，之后可以在sonar服务器得到上此次提交代码分析的结果信息，包括代码覆盖率等信息。 Sonar配置Gitlab可持续集成自动化脚本集成如果对项目有持续即成的需要，同时项目是利用gitlab进行托管，给项目配置好runner，则需要在项目目录下建.gitlab-ci.yml文件来自定义命令，具体参照gitlab-ci使用简介 ，这样每次提交的时候都会自动运行脚本，并将生成的报告直接上传到服务器，下面提供一个参考脚本如下 123456789101112131415161718# 定义 stagesstages: - review - analyze# 定义 reviewjob1: stage: review script: - /usr/local/sbin/code_analyze --preview #这条命令主要是将代码分析的信息输出到gitlab的Discussions，只会在分支上运行 except: - master# 定义 analyzejob2: stage: analyze script: - /usr/local/sbin/code_analyze #这条命令主要是将代码分析的信息同步到sonar服务器，只针对master only: - master code_analyze为脚本文件，主要是对git项目内容进行打包并将相应的代码分析报告上传到sonar服务器，其内容如下 1234567891011121314151617181920212223#!/bin/bashset -eecho "test"if [ "$1" = "--preview" ];then echo $&#123;CI_BUILD_REF&#125; echo $&#123;CI_BUILD_REF_NAME&#125; echo $&#123;CI_PROJECT_DIR&#125; echo $&#123;CI_PROJECT_ID&#125; sonar_prop="-Dsonar.issuesReport.console.enable=true -Dsonar.analysis.mode=preview -Dsonar.preview.excludePlugins=issueassign,scmstats -Dsonar.gitlab.commit_sha=$&#123;CI_BUILD_REF&#125; -Dsonar.gitlab.ref=$&#123;CI_BUILD_REF_NAME&#125; -Dsonar.gitlab.project_id=$&#123;CI_PROJECT_ID&#125;" if [ -f "gradlew" ]; then ./gradlew clean check sonarqube $sonar_prop else mvn --batch-mode clean verify sonar:sonar $sonar_prop fielse sonar_prop="-Dsonar.preview.excludePlugins=gitlab" if [ -f "gradlew" ]; then ./gradlew clean check sonarqube $sonar_prop else #mvn clean org.codehaus.mojo:cobertura-maven-plugin:2.7:cobertura -Dcobertura.report.format=xml -Dcobertura.aggregate=true mvn --batch-mode verify sonar:sonar $sonar_prop fifi Sonar写入Gitlab Discussion如果希望直接在 gitlab 的每次 Merge_requesrs 中在 gitlab 的 Discussion 中显示出此次代码分析的结果，效果如下 首先，需要gitlab给sonar授权，在 gitlab 中 ［User Settings］中生成 Access Tokens 然后在 sonar 的配置页写入token, 如下，由于申请的 token 的作用域为 api, sonar里面配置 scope 为 api 配置完后，在gitlab上之执行Merge Request时候会出发自动构建，同时生成相应的isscus。 参考资料 Sonar官方文档 Sonar插件下载地址]]></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
+      <tags>
+        <tag>代码质量分析</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Gitlab-CI持续集成]]></title>
     <url>%2F2016%2F11%2F27%2Fgitlab-ci%2F</url>
     <content type="text"><![CDATA[持续集成 (Continuous Integration) 是一种软件开发实践，即团队开发成员经常集成他们的工作，通过每个成员每天至少集成一次，也就意味着每天可能会发生多次集成。每次集成都通过自动化的构建（包括编译，发布，自动化测试）来验证，从而尽早地发现集成错误，同样在《Code Complete》里提到了，对于持续集成（在书中，Steve McConnell使用Incremental Integration的术语）有以下几点好处： 易于定位错误，当集成失败后很容易及时的找到问题所在 模拟生产环境的自动测试 与其它工具结合的持续代码改进，比如Sonar,findbug等 方便进行Code Review Gitlab-Runner在Gitlab-CI中有一个叫 Runner 的概念, 按照官方定义, Runner一共有三种类型 本地Runner (优点:部署方便, 缺点:使用的是开发机器的资源， Runner服务无法持久化) 普通的服务器上的Runner (本文主要用的这种Runner) 基于Docker的Runner (没有较好的docker环境，如果存在docker集群的话推荐使用) GitLab-Runner类似于一个用来执行软件集成脚本的东西，它负责将Git仓库的代码 Clone 到 Runner所在到服务器上，然后运行软件集成脚本，同时将脚本输出的内容写回Git,如下图所示 Runner 可以分布在不同的主机上，同一个主机上可以根据不同的项目注册多个 Runner。 Gitlab-Runner安装直接参考官网教程安装 12345678910# For MacOS brew install gitlab-ci-multi-runner# For Debian/Ubuntu curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.deb.sh | sudo bashsudo apt-get install gitlab-ci-multi-runner# For RHEL/CentOS curl -L https://packages.gitlab.com/install/repositories/runner/gitlab-ci-multi-runner/script.rpm.sh | sudo bashsudo yum install gitlab-ci-multi-runner 使用gitlab-ci-multi-runner注册Runner安装好gitlab-ci-multi-runner这个软件之后，我们就可以用它向GitLab-CI注册Runner了，Gitlab-Runner可以分为两种类型: Shared Runner: 共享型，这个需要gitlab管理员创建。 Specific Runner: 指定型，拥有项目工程访问权限的人都可以创建(本文主要创建该类型Runner) 向GitLab-CI注册一个Runner需要两样东西：GitLab-CI的url和注册token。其中，token是为了确定你这个Runner是所有工程都能够使用的Shared Runner还是具体某一个工程才能使用的Specific Runner。 首先，在gitlab项目配置上选中 Runners, 然后会出现相应的ci绑定Runner的配置选项根据项目设置中的 url 和 token , 在服务器上注册Runner， 12345678910111213141516#然后启动Runner去和CI进行绑定$ gitlab-ci-multi-runner registerRunning in System-modePlease enter the gitlab-ci coordinator Url:#--&gt;然后让你输入上图的CI URLPlease enter the gitlab-ci token for thus runner:#--&gt;然后让你输入上图的TokenPlease enter the gitlab-ci description for this runner:#--&gt;然后随便给Runner命名Please enter the gitlab-ci tags for thus runner(comma separated):Please enter the executor:#--&gt;然后类型的话， 请务必选 Shell#--&gt;完毕$ gitlab-ci-multi-runner list // 查看是否注册成功$ gitlab-ci-multi-runner start // 把Runner当成Service启动 如果注册的Runner和Gitlab连接上则会出现绿色Runner证明可用 Runner使用在git项目根目录下创建文件 .gitlab-ci.yml 脚本 12build: script: "pwd &amp; mvn test" 在 Pipelines 中运行，即会自动运行脚本进行构建并输出构建结果，之后每次提交代码都会进行集成测试，保证每次的提交都是正确的 参考资料 Gitlab-Runner GitLab CI持续集成配置方案]]></content>
+      <categories>
+        <category>技术杂谈</category>
+      </categories>
+      <tags>
+        <tag>持续集成</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[FFmpeg命令行转压视频]]></title>
     <url>%2F2016%2F10%2F14%2Fffmpeg-guide%2F</url>
     <content type="text"><![CDATA[FFmpeg是一套可以用来记录、转换数字音频、视频，并能将其转化为流的开源计算机程序。采用LGPL或GPL许可证。它提供了录制、转换以及流化音视频的完整解决方案。它包含了非常先进的音频/视频编解码库libavcodec，为了保证高可移植性和编解码质量，libavcodec里很多code都是从头开发的。 安装直接到官网http://ffmpeg.org/download.html根据系统下载对应的版本即可，建议直接下载static版，开箱即用，对于mac用户而言，也可以直接brew安装，命令行如下： 1brew install ffmpeg --with-faac --with-fdk-aac --with-ffplay --with-fontconfig --with-freetype --with-libass --with-libbluray --with-libcaca --with-libsoxr --with-libquvi --with-frei0r --with-libvidstab --with-libvorbis --with-libvpx --with-opencore-amr --with-openjpeg --with-openssl --with-opus --with-rtmpdump --with-schroedinger --with-speex --with-theroa --with-tools --with-x265 使用安装好之后就可以使用ffmpeg命令来压制你的视频文件了，下面为一个简单的命令行使用，对于压缩效果不满意的可以根据ffmpeg参数进行调整 1ffmpeg -i your_video -vcodec libx264 -preset fast -crf 20 -y -vf "scale=1920:-1" -acodec libmp3lame -ab 128k your_output 对该命令的常用参数介绍如下 命令行参数 意义 默认值 -i 输入文件 -vcodec 编码格式，支持h264和h265 xvid -preset 编码速率控制，编码加快，意味着信息丢失严重，输出视频质量差 -crt 控制输出质量的，范围0-51，0为无失真编码，建议18-28 23 -y 覆盖输出文件，即如果 output.wmv 文件已经存在的话，不经提示就覆盖掉 -vf 视频过滤器，样例中表示输出保持原始宽高比的1920视频 -acodec 音频编码方式 -ab 音频数据流量，一般选择32，64，96，128 推荐使用128 部分参数详细说明如下 –crt: 这个选项会直接影响到输出视频的码率，当设置了这个参数之后，再设置－b指定码率不会生效，本人对一个368M的avi文件进行压缩，结果如下(该视频总共450帧，时长15s) crf值 压缩后文件大小 20 8.14M 20 8.14M 30 2.40M –preset: 指定编码的配置,x264提供了一些预设值，而这些预设值可以通过preset指定。这些预设值有包括：ultrafast，superfast，veryfast，faster，fast，medium，slow，slower，veryslow和placebo。ultrafast编码速度最快，但压缩率低，生成的文件更大，placebo则正好相反。x264所取的默认值为medium。需要说明的是，preset主要是影响编码的速度，并不会很大的影响编码出来的结果的质量 常用参数可选视频参数ps:仅仅列出部分参数，部分高级选项请自行查阅官方文档 命令行参数 意义 默认值 -bitexact 使用标准比特率 -vb 指定视频的比特率，也就是码率 -s size 指定分辨率 -r rate 帧率 29.97 可选音频参数 命令行参数 意义 -ab 设置比特率(单位：bit/s，也许老版是kb/s)前面，-ac设为立体声时要以一半比特率来设置，比如192kbps的就设成96，转换 默认比特率都较小，要听到较高品质声音的话建议设到160kbps（80） -ar 设置音频采样率, 设置音频采样率 (单位：Hz)，PSP只认24000 -ac 设置声道数，1就是单声道，2就是立体声，转换单声道的TVrip可以用1（节省一半容量），高品质的DVDrip就可以用2 -an 取消音频 -vol 设置录制音量大小, 在转换时可以用这个提高音量 参考文献 ffmpeg官方文档]]></content>
       <categories>
-        <category>视频压缩</category>
+        <category>技术杂谈</category>
       </categories>
       <tags>
         <tag>视频压缩</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Java并发-线程池和Executors框架]]></title>
+    <url>%2F2015%2F01%2F17%2Fexecutor-infrastructure%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>高并发</tag>
       </tags>
   </entry>
 </search>
