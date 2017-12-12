@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="高并发," />
+  <meta name="keywords" content="Java," />
 
 
 
@@ -100,18 +100,20 @@
 
 
 
-<meta name="description" content="有錢無錢日複日，碼上碼下年複年">
-<meta name="keywords" content="高并发">
+<meta name="description" content="为了避免系统频繁的创建和销毁线程，通常会让创建的线程进行复用。一般我们进行数据库开发的时候，为了避免每次数据库查询都重新建立和销毁数据库连接，我们可以利用数据库连接池维护一些数据连接，让其长期保持在一个激活的状态，当需要使用数据库的时候，并不是创建一个连接，而是从连接池中获取一个可用的连接。 线程池也是和数据库连接池类似的概念。线程池中总有几个活跃的线程，当你需要使用线程时，可以直接从池子里随便拿">
+<meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java并发-线程池和Executors框架">
+<meta property="og:title" content="Java并发-Executors框架和线程池">
 <meta property="og:url" content="http://yoursite.com/2015/01/17/executor-infrastructure/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
-<meta property="og:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta property="og:description" content="为了避免系统频繁的创建和销毁线程，通常会让创建的线程进行复用。一般我们进行数据库开发的时候，为了避免每次数据库查询都重新建立和销毁数据库连接，我们可以利用数据库连接池维护一些数据连接，让其长期保持在一个激活的状态，当需要使用数据库的时候，并不是创建一个连接，而是从连接池中获取一个可用的连接。 线程池也是和数据库连接池类似的概念。线程池中总有几个活跃的线程，当你需要使用线程时，可以直接从池子里随便拿">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2017-12-02T05:05:23.000Z">
+<meta property="og:image" content="http://img.blog.csdn.net/20160607192300746">
+<meta property="og:updated_time" content="2017-12-11T13:31:51.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java并发-线程池和Executors框架">
-<meta name="twitter:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta name="twitter:title" content="Java并发-Executors框架和线程池">
+<meta name="twitter:description" content="为了避免系统频繁的创建和销毁线程，通常会让创建的线程进行复用。一般我们进行数据库开发的时候，为了避免每次数据库查询都重新建立和销毁数据库连接，我们可以利用数据库连接池维护一些数据连接，让其长期保持在一个激活的状态，当需要使用数据库的时候，并不是创建一个连接，而是从连接池中获取一个可用的连接。 线程池也是和数据库连接池类似的概念。线程池中总有几个活跃的线程，当你需要使用线程时，可以直接从池子里随便拿">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160607192300746">
 
 
 
@@ -146,7 +148,7 @@
 
 
 
-  <title>Java并发-线程池和Executors框架 | TigerDU's World</title>
+  <title>Java并发-Executors框架和线程池 | TigerDU's World</title>
   
 
 
@@ -350,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java并发-线程池和Executors框架</h1>
+          <h1 class="post-title" itemprop="name headline">Java并发-Executors框架和线程池</h1>
         
 
         <div class="post-meta">
@@ -373,28 +375,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java/" itemprop="url" rel="index">
-                    <span itemprop="name">Java</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -402,7 +382,7 @@
 
           
           
-             <span id="/2015/01/17/executor-infrastructure/" class="leancloud_visitors" data-flag-title="Java并发-线程池和Executors框架">
+             <span id="/2015/01/17/executor-infrastructure/" class="leancloud_visitors" data-flag-title="Java并发-Executors框架和线程池">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,7 +413,26 @@
       
 
       
-        
+        <p>为了避免系统频繁的创建和销毁线程，通常会让创建的线程进行复用。一般我们进行数据库开发的时候，为了避免每次数据库查询都重新建立和销毁数据库连接，我们可以利用数据库连接池维护一些数据连接，让其长期保持在一个激活的状态，当需要使用数据库的时候，并不是创建一个连接，而是从连接池中获取一个可用的连接。</p>
+<p>线程池也是和数据库连接池类似的概念。线程池中总有几个活跃的线程，当你需要使用线程时，可以直接从池子里随便拿出一个空闲的线程，完成任务后将线程退回到池子。</p>
+<h2 id="Executors框架"><a href="#Executors框架" class="headerlink" title="Executors框架"></a>Executors框架</h2><p>Eexecutor作为灵活且强大的异步执行框架，其支持多种不同类型的任务执行策略，提供了一种标准的方法将任务的提交过程和执行过程解耦开发，基于生产者-消费者模式，其提交任务的线程相当于生产者，执行任务的线程相当于消费者，并用Runnable来表示任务，Executor的实现还提供了对生命周期的支持，以及统计信息收集，应用程序管理机制和性能监视等机制。JDK提供了一整套的Executor框架来进行线程控制，其主要成员如下：<br><img src="http://img.blog.csdn.net/20160607192300746" alt="Executor框架结构图" title="图1 Executor框架结构图"><br>其中：</p>
+<ul>
+<li>Executor 执行器接口，该接口定义执行Runnable任务的方式。</li>
+<li>ExecutorService 该接口定义提供对Executor的服务。</li>
+<li>ScheduledExecutorService 定时调度接口。</li>
+<li>AbstractExecutorService 执行框架抽象类。</li>
+<li>ThreadPoolExecutor JDK中线程池的具体实现。</li>
+<li>Executors 线程池工厂类。</li>
+</ul>
+<p>ExecutorService的生命周期包括三种状态：运行、关闭、终止。创建后便进入运行状态，当调用了shutdown()方法时，便进入关闭状态，此时意味着ExecutorService不再接受新的任务，但它还在执行已经提交了的任务，当素有已经提交了的任务执行完后，便到达终止状态。如果不调用shutdown()方法，ExecutorService会一直处在运行状态，不断接收新的任务，执行新的任务，服务器端一般不需要关闭它，保持一直运行即可。</p>
+<p>Executor框架提供了各种类型的线程池，主要有以下几个工厂方法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/***创建固定大小的线程池***/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorServcie <span class="title">newFixedThreadPool</span><span class="params">(<span class="keyword">int</span> nThread)</span></span>;</div><div class="line"><span class="comment">/***单线程的线程池***/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorServcie <span class="title">newSingleThreadExecutor</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">/***可缓存的线程池***/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorServcie <span class="title">newCachedThreadPool</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">/***定时任务调度的线程池***/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorServcie <span class="title">newSingleThreadScheduledExecutor</span><span class="params">()</span></span>;</div><div class="line"><span class="comment">/***单线程的定时任务调度线程池***/</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> ExecutorServcie <span class="title">newScheduledThreadPool</span><span class="params">(<span class="keyword">int</span> corePoolSize)</span></span>;</div></pre></td></tr></table></figure>
+<h3 id="newFixedThreadPool"><a href="#newFixedThreadPool" class="headerlink" title="newFixedThreadPool"></a>newFixedThreadPool</h3><p>返回一个包含指定数目线程的线程池，如果任务数量多于线程数目，那么没有没有执行的任务必须等待，直到有任务完成为止。每次提交一个任务就创建一个线程，直到线程达到线程池的最大大小。线程池的大小一旦达到最大值就会保持不变，如果某个线程因为执行异常而结束，那么线程池会补充一个新线程，简单的展示一下该类线程池的使用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div></pre></td></tr></table></figure>
+<h3 id="newSingleThreadExecutor"><a href="#newSingleThreadExecutor" class="headerlink" title="newSingleThreadExecutor"></a>newSingleThreadExecutor</h3><h3 id="newCachedThreadPool"><a href="#newCachedThreadPool" class="headerlink" title="newCachedThreadPool"></a>newCachedThreadPool</h3><h3 id="newSingleThreadScheduledExecutor"><a href="#newSingleThreadScheduledExecutor" class="headerlink" title="newSingleThreadScheduledExecutor"></a>newSingleThreadScheduledExecutor</h3><h3 id="newScheduledThreadPool"><a href="#newScheduledThreadPool" class="headerlink" title="newScheduledThreadPool"></a>newScheduledThreadPool</h3><h2 id="线程池的实现"><a href="#线程池的实现" class="headerlink" title="线程池的实现"></a>线程池的实现</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a href="http://www.infoq.com/cn/articles/fork-join-introduction" target="_blank" rel="external">ForkJoin简单实现原理</a></li>
+</ol>
+
       
     </div>
     
@@ -450,7 +449,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/高并发/" rel="tag"># 高并发</a>
+            <a href="/tags/Java/" rel="tag"># Java</a>
           
         </div>
       
@@ -523,8 +522,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c"
@@ -561,7 +569,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-count">8</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -639,6 +647,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Executors框架"><span class="nav-number">1.</span> <span class="nav-text">Executors框架</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#newFixedThreadPool"><span class="nav-number">1.1.</span> <span class="nav-text">newFixedThreadPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newSingleThreadExecutor"><span class="nav-number">1.2.</span> <span class="nav-text">newSingleThreadExecutor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newCachedThreadPool"><span class="nav-number">1.3.</span> <span class="nav-text">newCachedThreadPool</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newSingleThreadScheduledExecutor"><span class="nav-number">1.4.</span> <span class="nav-text">newSingleThreadScheduledExecutor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#newScheduledThreadPool"><span class="nav-number">1.5.</span> <span class="nav-text">newScheduledThreadPool</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#线程池的实现"><span class="nav-number">2.</span> <span class="nav-text">线程池的实现</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考资料"><span class="nav-number">3.</span> <span class="nav-text">参考资料</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
