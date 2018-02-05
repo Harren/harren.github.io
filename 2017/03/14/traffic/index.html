@@ -110,11 +110,13 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo48r9x850j20x40hagtp.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo4g8zaomvj211y0i3mx7.jpg">
+<meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo5tajywttj20oh09bjrx.jpg">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5taj8axpj20pp0avgma.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fnylmc94zaj215w0i60x0.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg">
-<meta property="og:updated_time" content="2018-02-05T11:22:59.000Z">
+<meta property="og:updated_time" content="2018-02-05T12:26:58.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线广告系统预算控制和流量预估的研究">
 <meta name="twitter:description" content="本文主要是针对国外的计算广告论文 Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms 进行技术学习的一次分享，同时拓展性的研究了竞价预算和流量预测的方法，具体的参考论文以及实现代码见最后的参考文献地址">
@@ -470,14 +472,18 @@
 $${\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1} $$
 
 <p>其中，$D$ 为训练数据的天数， ${Y_{d,t}}$ 为在 d 天的 t 时刻的实际流量，${h({X_{d,t}};\Theta )}$ 为预测模型函数，计算值和实际值的均方差为损失函数，通过训练，寻找最优的模型来使得损失函数最小。</p>
-<h3 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h3><h3 id="特征选取"><a href="#特征选取" class="headerlink" title="特征选取"></a>特征选取</h3><p>从dsp的角度出发，而不是单纯的利用在线广告的一些特征，提取出一下三个特征</p>
+<h3 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h3><p><img src="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo5tajywttj20oh09bjrx.jpg" alt="" title="图2 系统架构图"></p>
+<p>上图是整个系统的架构图，利用前D天的历史数据来生成当日的模型，首先提取出前D天的历史数据的特征，然后训练出当天需要用到的数据模型，当需要进行预测的时间点来到的时候，代入当前的时间点的特征，通过流量预测模型来得到此刻时间点的流量。</p>
+<p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5taj8axpj20pp0avgma.jpg" alt="" title="图3 流量预测模块"></p>
+<p>在整个系统框架中，最重要的为流量预测模型，流量预测模型中首先会更新上一个时间点的真实流量，检测出异常流量并对异常流量进行平滑处理，然后根据历史数据获取到当前的特征<br>，根据获取的特征进行线性回归即可得到真正的预测模型。</p>
+<h3 id="特征选取"><a href="#特征选取" class="headerlink" title="特征选取"></a>特征选取</h3><p>从dsp的角度出发，而不是单纯的利用在线广告的一些特征，提取出一下三个特征</p>
 <ol>
 <li>LastNDayReqs: 最近N天的当前Slot点的请求数</li>
 <li>LastSlotReqs: 上一次Slot点的请求数(主要针对流量异常的解决方案)</li>
 <li>SlotNumber: 当前的时间段</li>
 </ol>
 <p>其中前两个参数分别代表了长期和短期因素对流量的影响，如果仅仅使用这两个元素的，进行流量预测产生的结果如下所示，</p>
-<p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fnylmc94zaj215w0i60x0.jpg" alt="" title="图2 忽略SlotNumber预测结果对比"></p>
+<p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fnylmc94zaj215w0i60x0.jpg" alt="" title="图4 忽略SlotNumber预测结果对比"></p>
 <p>通过图中的对比可以发现，在任意时段对于流量的预测都过高或者过低，当流量发生变化的时候，对于流量的预测总是滞后于实际的流量值，因此，选择 SlotNumber 这一特征来弥补这种差距。</p>
 <p>SlotNum 是长度为 T 的一个二进制的一维数组，对于其定义如下<br>
 $$SlotNu{m^k}(i) = 1,k = i$$
@@ -557,10 +563,10 @@ $$b = \bar y(d,t) - \omega \bar X(d,t) \tag{17}$$
 <p>最小二乘法的优势在于计算简单，快速，并且找到的估计参数是全局极小值；缺点是对于异常值极其敏感。</p>
 <h2 id="算法结果"><a href="#算法结果" class="headerlink" title="算法结果"></a>算法结果</h2><p>我们模拟生成近半个月的流量并根据论文的算法进行建模和参数预估，模拟生成半个月的流量数据，并选取其中的最近的7天作为训练样本，即</p>
 <script type="math/tex; mode=display">D = 7,T = 24</script><p>对生成的数据进行线性回归得到曲线如下，目前只取了前一天的曲线图：</p>
-<p><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg" alt="" title="图4 回归曲线与真实曲线对比"></p>
+<p><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg" alt="" title="图5 回归曲线与真实曲线对比"></p>
 <p>其最近七天的roc曲线和整体的roc曲线如下图所示</p>
-<p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg" alt="" title="图5 最近七天ROC曲线"></p>
-<p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg" alt="" title="图5 最近七天ROC曲线"></p>
+<p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg" alt="" title="图6 最近七天ROC曲线"></p>
+<p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg" alt="" title="图7 最近七天ROC曲线"></p>
 <p>可以看出，其整体的拟合结果效果只有极少数的点呈现离散。</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
 <li><a href="https://github.com/wzhe06/Ad-papers/blob/master/Budget%20Control/Predicting%20Traffic%20of%20Online%20Advertising%20in%20Real-time%20Bidding%20Systems%20from%20Perspective%20of%20Demand-Side%20Platforms.pdf" target="_blank" rel="external"> Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms</a></li>
