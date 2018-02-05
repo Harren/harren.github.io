@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -163,7 +163,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -183,7 +183,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -441,6 +441,7 @@
 <h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><p>安装好之后就可以使用ffmpeg命令来压制你的视频文件了，下面为一个简单的命令行使用，对于压缩效果不满意的可以根据ffmpeg参数进行调整</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ffmpeg -i your_video -vcodec libx264 -preset fast -crf 20 -y -vf <span class="string">"scale=1920:-1"</span> -acodec libmp3lame -ab 128k your_output</div></pre></td></tr></table></figure>
 <p>对该命令的常用参数介绍如下</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -492,8 +493,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>部分参数详细说明如下</p>
-<p><font color="red" size="3">–crt:</font> 这个选项会直接影响到输出视频的码率，当设置了这个参数之后，再设置－b指定码率不会生效，本人对一个368M的avi文件进行压缩，结果如下(该视频总共450帧，时长15s)</p>
+<p><font color="red" size="3">—crt:</font> 这个选项会直接影响到输出视频的码率，当设置了这个参数之后，再设置－b指定码率不会生效，本人对一个368M的avi文件进行压缩，结果如下(该视频总共450帧，时长15s)</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -516,8 +519,10 @@
 </tr>
 </tbody>
 </table>
-<p><font color="red" size="3">–preset:</font> 指定编码的配置,x264提供了一些预设值，而这些预设值可以通过preset指定。这些预设值有包括：ultrafast，superfast，veryfast，faster，fast，medium，slow，slower，veryslow和placebo。ultrafast编码速度最快，但压缩率低，生成的文件更大，placebo则正好相反。x264所取的默认值为medium。需要说明的是，preset主要是影响编码的速度，并不会很大的影响编码出来的结果的质量</p>
+</div>
+<p><font color="red" size="3">—preset:</font> 指定编码的配置,x264提供了一些预设值，而这些预设值可以通过preset指定。这些预设值有包括：ultrafast，superfast，veryfast，faster，fast，medium，slow，slower，veryslow和placebo。ultrafast编码速度最快，但压缩率低，生成的文件更大，placebo则正好相反。x264所取的默认值为medium。需要说明的是，preset主要是影响编码的速度，并不会很大的影响编码出来的结果的质量</p>
 <h2 id="常用参数"><a href="#常用参数" class="headerlink" title="常用参数"></a>常用参数</h2><h3 id="可选视频参数"><a href="#可选视频参数" class="headerlink" title="可选视频参数"></a>可选视频参数</h3><p>ps:仅仅列出部分参数，部分高级选项请自行查阅<a href="http://ffmpeg.org/ffmpeg.html#Options" target="_blank" rel="external">官方文档</a></p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -549,7 +554,9 @@
 </tr>
 </tbody>
 </table>
-<h3 id="可选音频参数"><a href="#可选音频参数" class="headerlink" title="可选音频参数"></a>可选音频参数</h3><table>
+</div>
+<h3 id="可选音频参数"><a href="#可选音频参数" class="headerlink" title="可选音频参数"></a>可选音频参数</h3><div class="table-container">
+<table>
 <thead>
 <tr>
 <th>命令行参数</th>
@@ -579,6 +586,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
 <li><a href="http://ffmpeg.org/ffmpeg.html#Options" target="_blank" rel="external">ffmpeg官方文档</a></li>
 </ol>
@@ -611,10 +619,6 @@
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/10/14/traffic/" rel="next" title="在线广告流量预测">
-                <i class="fa fa-chevron-left"></i> 在线广告流量预测
-              </a>
             
           </div>
 
@@ -701,7 +705,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -723,7 +727,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1397,7 +1401,7 @@
         showTime(Counter);
       }
     });
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1406,6 +1410,8 @@
   
 
   
+  
+
 
   
 

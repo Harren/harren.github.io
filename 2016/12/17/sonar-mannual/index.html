@@ -7,7 +7,7 @@
 
 <html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
-  <meta charset="UTF-8"/>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 <meta name="theme-color" content="#222">
@@ -171,7 +171,7 @@
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
     })();
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -191,7 +191,7 @@
     
   
 
-  <div class="container sidebar-position-left page-post-detail ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -456,6 +456,7 @@
 <p>配置好数据库权限后，修改 sonar.properties 文件配置如下(数据库用户名密码为：sonar/sonar)<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwoukblqyj20nr07s404.jpg" alt="sonar_config"><br>配置后重新启动sonar即可，此次因为需要创建数据库，重启较慢，重启成功后会在数据库中生成sonar相关的表。</p>
 <h2 id="使用Sonar进行代码质量管理"><a href="#使用Sonar进行代码质量管理" class="headerlink" title="使用Sonar进行代码质量管理"></a>使用Sonar进行代码质量管理</h2><p>由于本人主要使用 Java 作为开发工具，主要介绍对 Java 代码代码质量管理，sonar默认是不需要登录权限认证就可以上传代码监测报告的，在生产环境中需要打开用户权限，在[配置]-&gt;[通用配置]-&gt;[权限]中打开即可，如下图所示<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwowmxps5j20wi06mq3r.jpg" alt="sonar_auth"></p>
 <h3 id="Maven集成Sonar"><a href="#Maven集成Sonar" class="headerlink" title="Maven集成Sonar"></a>Maven集成Sonar</h3><p>Maven 插件会自动把所需数据（如单元测试结果、静态检测结果等）上传到 Sonar 服务器上，需要说明的是，关于 Sonar 的配置并不在每个工程的 pom.xml 文件里，而是在 Maven 的配置文件 settings.xml 文件里，涉及到以下 maven 配置项目:</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -482,6 +483,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h4 id="sonar生成登陆token"><a href="#sonar生成登陆token" class="headerlink" title="sonar生成登陆token"></a>sonar生成登陆token</h4><p>为了强化安全，避免直接暴露出分析用户的密码，使用用户令牌来代替用户登陆,如下图<br><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fkwouqs7woj21d20vkk4l.jpg" alt="sonar_auth"></p>
 <h4 id="Maven配置文件修改"><a href="#Maven配置文件修改" class="headerlink" title="Maven配置文件修改"></a>Maven配置文件修改</h4><p>具体配置如下:</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;profile&gt;</div><div class="line">        &lt;id&gt;sonar&lt;/id&gt;</div><div class="line">        &lt;activation&gt;</div><div class="line">            &lt;activeByDefault&gt;<span class="literal">true</span>&lt;/activeByDefault&gt;</div><div class="line">        &lt;/activation&gt;</div><div class="line">        &lt;properties&gt;</div><div class="line">            &lt;sonar.host.url&gt;http://localhost:9000&lt;/sonar.host.url&gt;</div><div class="line">            &lt;sonar.login&gt;93a87b9d138cd836b65c2c52fc5578fc71270707&lt;/sonar.login&gt;</div><div class="line">        &lt;/properties&gt;</div><div class="line">    &lt;/profile&gt;</div></pre></td></tr></table></figure>
@@ -619,7 +621,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -641,7 +643,7 @@
             
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">标签</span>
               </a>
             </div>
@@ -1315,7 +1317,7 @@
         showTime(Counter);
       }
     });
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1324,6 +1326,8 @@
   
 
   
+  
+
 
   
 
