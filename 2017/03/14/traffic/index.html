@@ -114,7 +114,7 @@
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg">
-<meta property="og:updated_time" content="2018-02-05T08:43:06.000Z">
+<meta property="og:updated_time" content="2018-02-05T11:22:59.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线广告系统预算控制和流量预估的研究">
 <meta name="twitter:description" content="本文主要是针对国外的计算广告论文 Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms 进行技术学习的一次分享，同时拓展性的研究了竞价预算和流量预测的方法，具体的参考论文以及实现代码见最后的参考文献地址">
@@ -444,8 +444,9 @@
 </script>
 
 <blockquote>
-<p>本文主要是针对国外的计算广告论文 Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms 进行技术学习的一次分享，同时拓展性的研究了竞价预算和流量预测的方法，具体的参考论文以及实现代码见最后的参考文献地址<br><a id="more"></a><br>随着互联网的发展和用户的增长，广告行业从传统的线下广告模式，逐步转变为线上广告模式，同时，由于大数据分析技术的运用，线上广告模式相比于传统广告也体现了巨大的优越性。广告主之间相互竞争，通过竞价的方式，将自己的广告投放在运营媒体的广告位上。</p>
+<p>本文主要是针对国外的计算广告论文 Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms 进行技术学习的一次分享，同时拓展性的研究了竞价预算和流量预测的方法，具体的参考论文以及实现代码见最后的参考文献地址<br><a id="more"></a></p>
 </blockquote>
+<p>随着互联网的发展和用户的增长，广告行业从传统的线下广告模式，逐步转变为线上广告模式，同时，由于大数据分析技术的运用，线上广告模式相比于传统广告也体现了巨大的优越性。广告主之间相互竞争，通过竞价的方式，将自己的广告投放在运营媒体的广告位上。</p>
 <p>对需求方平台算法的优化是广大广告主的诉求，是广告网络产品透明化和开放化的催生产物，使得线上广告变得越来越依赖大数据和计算导向的方向发展。预算控制和流量预估的研究是当前的一个热点，流量预测直接影响到广告主获得优质广告流量的能力，进而决定广告预算的性价比并影响广告营销的效果，成为DSP系统(Demand Side Platfrom, 需求方平台)中十分重要的一个环节。</p>
 <p><img src="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo48r9x850j20x40hagtp.jpg" alt="" title="图1 实时竞价系统的工作流"></p>
 <h2 id="预算控制-Budget-Control"><a href="#预算控制-Budget-Control" class="headerlink" title="预算控制(Budget Control)"></a>预算控制(Budget Control)</h2><h3 id="预算控制的意义"><a href="#预算控制的意义" class="headerlink" title="预算控制的意义"></a>预算控制的意义</h3><p>通过实时竞价方式投放在线广告，能够更为准确地将广告的预算花费到那些更有可能产生回报的广告展示机会上，从而使广告收益得到优化，通常情况下，广告商需要为每个广告营销活动设置投放周期内的预算，需求方平台按照一系列优化算法买下尽可能多的符合广告目标群体的广告展示机会，因此，在有限预算的情况下对每次广告展示机会进行出价并给出合理的竞标价格是实时竞价的关键，而针对此的优化算法的主要目标分为以下几点：</p>
