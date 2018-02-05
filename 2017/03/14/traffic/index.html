@@ -110,13 +110,13 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo48r9x850j20x40hagtp.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo4g8zaomvj211y0i3mx7.jpg">
-<meta property="og:image" content="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo5tajywttj20oh09bjrx.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5taj8axpj20pp0avgma.jpg">
+<meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5unrqrxvj20ot09pt92.jpg">
+<meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5unqs8yzj20oj09odg5.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fnylmc94zaj215w0i60x0.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg">
-<meta property="og:updated_time" content="2018-02-05T12:26:58.000Z">
+<meta property="og:updated_time" content="2018-02-05T12:38:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线广告系统预算控制和流量预估的研究">
 <meta name="twitter:description" content="本文主要是针对国外的计算广告论文 Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms 进行技术学习的一次分享，同时拓展性的研究了竞价预算和流量预测的方法，具体的参考论文以及实现代码见最后的参考文献地址">
@@ -472,9 +472,9 @@
 $${\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1} $$
 
 <p>其中，$D$ 为训练数据的天数， ${Y_{d,t}}$ 为在 d 天的 t 时刻的实际流量，${h({X_{d,t}};\Theta )}$ 为预测模型函数，计算值和实际值的均方差为损失函数，通过训练，寻找最优的模型来使得损失函数最小。</p>
-<h3 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h3><p><img src="http://wx2.sinaimg.cn/mw1024/78d85414ly1fo5tajywttj20oh09bjrx.jpg" alt="" title="图2 系统架构图"></p>
+<h3 id="系统框架"><a href="#系统框架" class="headerlink" title="系统框架"></a>系统框架</h3><p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5unrqrxvj20ot09pt92.jpg" alt="" title="图2 系统架构图"></p>
 <p>上图是整个系统的架构图，利用前D天的历史数据来生成当日的模型，首先提取出前D天的历史数据的特征，然后训练出当天需要用到的数据模型，当需要进行预测的时间点来到的时候，代入当前的时间点的特征，通过流量预测模型来得到此刻时间点的流量。</p>
-<p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5taj8axpj20pp0avgma.jpg" alt="" title="图3 流量预测模块"></p>
+<p><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5unqs8yzj20oj09odg5.jpg" alt="" title="图3 流量预测模块"></p>
 <p>在整个系统框架中，最重要的为流量预测模型，流量预测模型中首先会更新上一个时间点的真实流量，检测出异常流量并对异常流量进行平滑处理，然后根据历史数据获取到当前的特征<br>，根据获取的特征进行线性回归即可得到真正的预测模型。</p>
 <h3 id="特征选取"><a href="#特征选取" class="headerlink" title="特征选取"></a>特征选取</h3><p>从dsp的角度出发，而不是单纯的利用在线广告的一些特征，提取出一下三个特征</p>
 <ol>
