@@ -116,7 +116,7 @@
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg">
 <meta property="og:image" content="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg">
-<meta property="og:updated_time" content="2018-02-06T04:13:19.000Z">
+<meta property="og:updated_time" content="2018-02-07T07:15:33.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在线广告系统预算控制和流量预估的研究">
 <meta name="twitter:description" content="本文主要是针对国外的计算广告论文 Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms 进行技术学习的一次分享，同时拓展性的研究了竞价预算和流量预测的方法，具体的参考论文以及实现代码见最后的参考文献地址">
@@ -565,12 +565,12 @@ $$b = \bar y(d,t) - \omega \bar X(d,t) \tag{17}$$
 <h2 id="算法结果"><a href="#算法结果" class="headerlink" title="算法结果"></a>算法结果</h2><p>我们模拟生成近半个月的流量并根据论文的算法进行建模和参数预估，模拟生成半个月的流量数据，并选取其中的最近的7天作为训练样本，即</p>
 <script type="math/tex; mode=display">D = 7,T = 24</script><p>对生成的数据进行线性回归得到曲线如下，目前只取了前一天的曲线图：</p>
 <p><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1fo5n915e9jj211y0i3mxe.jpg" alt="" title="图5 回归曲线与真实曲线对比"></p>
-<p>其最近七天的roc曲线和整体的roc曲线如下图所示</p>
+<p>其最近七天的RCO曲线和整体的RCO曲线如下图所示</p>
 <p><img src="http://wx3.sinaimg.cn/mw1024/78d85414ly1fo5n91oi6xj211y0i3mxa.jpg" alt="" title="图6 最近七天ROC曲线"></p>
 <p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1fo5n921039j211y0i3wet.jpg" alt="" title="图7 最近七天ROC曲线"></p>
 <p>可以看出，其整体的拟合结果效果只有极少数的点呈现离散。</p>
 <h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ol>
-<li><a href="https://github.com/wzhe06/Ad-papers/blob/master/Budget%20Control/Predicting%20Traffic%20of%20Online%20Advertising%20in%20Real-time%20Bidding%20Systems%20from%20Perspective%20of%20Demand-Side%20Platforms.pdf" target="_blank" rel="external"> Predicting Traffic of Online Advertising in Real-time Bidding Systems from Perspective of Demand-Side Platforms</a></li>
+<li><a href="https://github.com/wzhe06/Ad-papers/blob/master/Budget%20Control/Predicting%20Traffic%20of%20Online%20Advertising%20in%20Real-time%20Bidding%20Systems%20from%20Perspective%20of%20Demand-Side%20Platforms.pdf" target="_blank" rel="external"> Lai H C, Shih W Y, Huang J L, et al. Predicting traffic of online advertising in real-time bidding systems from perspective of demand-side platforms[C]//Big Data (Big Data), 2016 IEEE International Conference on. IEEE, 2016: 3491-3498.</a></li>
 <li><a href="https://developers.facebook.com/docs/marketing-api/pacing" target="_blank" rel="external">Facebook 广告系统背后的Pacing算法</a></li>
 <li><a href="https://github.com/Harren/traffic_predicting.git" target="_blank" rel="external">Github代码地址</a></li>
 </ol>
