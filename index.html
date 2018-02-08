@@ -514,7 +514,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2017/02/16/springboot-quartz/" itemprop="url">用 Quartz 进行作业调度</a></h1>
+                <a class="post-title-link" href="/2017/02/16/springboot-quartz/" itemprop="url">Springboot整合Quartz定时任务调度</a></h1>
         
 
         <div class="post-meta">
@@ -566,7 +566,7 @@
 
           
           
-             <span id="/2017/02/16/springboot-quartz/" class="leancloud_visitors" data-flag-title="用 Quartz 进行作业调度">
+             <span id="/2017/02/16/springboot-quartz/" class="leancloud_visitors" data-flag-title="Springboot整合Quartz定时任务调度">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -599,9 +599,10 @@
       
         
           
-          最近因为项目需要
-{\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1}
-          
+          最近因为项目中涉及到了分布式任务执行的问题，考虑到自己去利用线程池去实现这种定时的任务调度重复造轮子，从整个服务的量级和需求来看，决定在项目中使用Quartz来实现这种分布式的定时任务调度。
+_本文中的Springboot版本为1.5.4.RELEASE，Quartz版本为2.2.3_
+Quartz
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/02/16/springboot-quartz/#more" rel="contents">

@@ -100,18 +100,18 @@
 
 
 
-<meta name="description" content="最近因为项目需要 {\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1}">
+<meta name="description" content="最近因为项目中涉及到了分布式任务执行的问题，考虑到自己去利用线程池去实现这种定时的任务调度重复造轮子，从整个服务的量级和需求来看，决定在项目中使用Quartz来实现这种分布式的定时任务调度。 _本文中的Springboot版本为1.5.4.RELEASE，Quartz版本为2.2.3_ Quartz能做什么Quartz是一个开源的作业调度框架，它完全由Java写成，并设计用于J2SE和J2EE应用">
 <meta name="keywords" content="Java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="用 Quartz 进行作业调度">
+<meta property="og:title" content="Springboot整合Quartz定时任务调度">
 <meta property="og:url" content="http://yoursite.com/2017/02/16/springboot-quartz/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
-<meta property="og:description" content="最近因为项目需要 {\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1}">
+<meta property="og:description" content="最近因为项目中涉及到了分布式任务执行的问题，考虑到自己去利用线程池去实现这种定时的任务调度重复造轮子，从整个服务的量级和需求来看，决定在项目中使用Quartz来实现这种分布式的定时任务调度。 _本文中的Springboot版本为1.5.4.RELEASE，Quartz版本为2.2.3_ Quartz能做什么Quartz是一个开源的作业调度框架，它完全由Java写成，并设计用于J2SE和J2EE应用">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-08T03:31:39.000Z">
+<meta property="og:updated_time" content="2018-02-08T10:46:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="用 Quartz 进行作业调度">
-<meta name="twitter:description" content="最近因为项目需要 {\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1}">
+<meta name="twitter:title" content="Springboot整合Quartz定时任务调度">
+<meta name="twitter:description" content="最近因为项目中涉及到了分布式任务执行的问题，考虑到自己去利用线程池去实现这种定时的任务调度重复造轮子，从整个服务的量级和需求来看，决定在项目中使用Quartz来实现这种分布式的定时任务调度。 _本文中的Springboot版本为1.5.4.RELEASE，Quartz版本为2.2.3_ Quartz能做什么Quartz是一个开源的作业调度框架，它完全由Java写成，并设计用于J2SE和J2EE应用">
 
 
 
@@ -146,7 +146,7 @@
 
 
 
-  <title>用 Quartz 进行作业调度 | TigerDU's World</title>
+  <title>Springboot整合Quartz定时任务调度 | TigerDU's World</title>
   
 
 
@@ -350,7 +350,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">用 Quartz 进行作业调度</h1>
+          <h1 class="post-title" itemprop="name headline">Springboot整合Quartz定时任务调度</h1>
         
 
         <div class="post-meta">
@@ -402,7 +402,7 @@
 
           
           
-             <span id="/2017/02/16/springboot-quartz/" class="leancloud_visitors" data-flag-title="用 Quartz 进行作业调度">
+             <span id="/2017/02/16/springboot-quartz/" class="leancloud_visitors" data-flag-title="Springboot整合Quartz定时任务调度">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -433,8 +433,19 @@
       
 
       
-        <p>最近因为项目需要</p>
-<script type="math/tex; mode=display">{\arg _\Theta }\min \sum\limits_{\forall d,t} {loss(h({X_{d,t}};\Theta ),{Y_{d,t}}),1 \le d \le D,1 \le t \le T}\tag{1}</script>
+        <p>最近因为项目中涉及到了分布式任务执行的问题，考虑到自己去利用线程池去实现这种定时的任务调度重复造轮子，从整个服务的量级和需求来看，决定在项目中使用Quartz来实现这种分布式的定时任务调度。</p>
+<p>_本文中的Springboot版本为1.5.4.RELEASE，Quartz版本为2.2.3_</p>
+<h2 id="Quartz能做什么"><a href="#Quartz能做什么" class="headerlink" title="Quartz能做什么"></a>Quartz能做什么</h2><p>Quartz是一个开源的作业调度框架，它完全由Java写成，并设计用于J2SE和J2EE应用中。它提供了巨大的灵 活性而不牺牲简单性。你能够用它来为执行一个作业而创建简单的或复杂的调度。它有很多特征，如：数据库支持，集群，插件，EJB作业预构 建，JavaMail及其它，支持cron-like表达式等等。</p>
+<p>下面进行一个简单的示范例子，设定每分钟在终端打印出一个Hello World.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QuartzTest</span> <span class="keyword">implements</span> <span class="title">Job</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">execute</span><span class="params">(JobExecutionContext jobExecutionContext)</span> <span class="keyword">throws</span> JobExecutionException </span>&#123;</div><div class="line">        System.out.println(<span class="string">"Hello World"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            <span class="comment">// 获取调度器</span></div><div class="line">            Scheduler scheduler = StdSchedulerFactory.getDefaultScheduler();</div><div class="line"></div><div class="line">            <span class="comment">// 创建Job执行类</span></div><div class="line">            JobDetail job = JobBuilder.newJob(QuartzTest.class)</div><div class="line">                                .storeDurably()</div><div class="line">                                .withIdentity(<span class="string">"hello world "</span>, <span class="string">"test"</span>)</div><div class="line">                                .build();</div><div class="line">            <span class="comment">// 创建trigger,每分钟运行一次,无限循环</span></div><div class="line">            Trigger trigger = TriggerBuilder.newTrigger()</div><div class="line">                    .withIdentity(<span class="string">"hello world "</span>, <span class="string">"test"</span>)</div><div class="line">                    .withSchedule(SimpleScheduleBuilder.simpleSchedule().withIntervalInMinutes(<span class="number">1</span>).repeatForever())</div><div class="line">                    .build();</div><div class="line"></div><div class="line">            scheduler.scheduleJob(job, trigger);</div><div class="line"></div><div class="line">            <span class="comment">// and start it off</span></div><div class="line">            scheduler.start();</div><div class="line">            Thread.sleep(<span class="number">2000</span>);</div><div class="line">            scheduler.shutdown();</div><div class="line"></div><div class="line">        &#125; <span class="keyword">catch</span> (SchedulerException se) &#123;</div><div class="line">            se.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (InterruptedException ie) &#123;</div><div class="line">            ie.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="Quartz体系结构"><a href="#Quartz体系结构" class="headerlink" title="Quartz体系结构"></a>Quartz体系结构</h2><p>从上面的例子很好的覆盖了Quartz最重要的3个基本要素:</p>
+<ul>
+<li>Scheduler(调度器)：代表一个Quartz的独立运行容器， Trigger和JobDetail可以注册到Scheduler中， 两者在Scheduler中拥有各自的组及名称， 组及名称是Scheduler查找定位容器中某一对象的依据， Trigger的组及名称必须唯一， JobDetail的组和名称也必须唯一（但可以和Trigger的组和名称相同，因为它们是不同类型的）。Scheduler定义了多个接口方法， 允许外部通过组及名称访问和控制容器中Trigger和JobDetail。</li>
+<li>JobDetail &amp; Job(任务数据): Quartz每次调度Job时， 都重新创建一个Job实例， 所以它不直接接受一个Job的实例，相反它接收一个Job实现类(JobDetail:描述Job的实现类及其它相关的静态信息，如Job名字、描述、关联监听器等信息)，以便运行时通过newInstance()的反射机制实例化Job。</li>
+<li>Trigger(触发器)：是一个类，描述触发Job执行的时间触发规则。主要有SimpleTrigger和CronTrigger这两个子类。当且仅当需调度一次或者以固定时间间隔周期执行调度，SimpleTrigger是最适合的选择；而CronTrigger则可以通过Cron表达式定义出各种复杂时间规则的调度方案</li>
+</ul>
+<h3 id="Quartz集群架构图"><a href="#Quartz集群架构图" class="headerlink" title="Quartz集群架构图"></a>Quartz集群架构图</h3><p>Quartz支持单机上的程序调度，其在分布式集群中也有较好的表现，集群的</p>
+<h2 id="Springboot集成Quartz"><a href="#Springboot集成Quartz" class="headerlink" title="Springboot集成Quartz"></a>Springboot集成Quartz</h2>
       
     </div>
     
@@ -528,8 +539,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c"
@@ -644,6 +664,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quartz能做什么"><span class="nav-number">1.</span> <span class="nav-text">Quartz能做什么</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Quartz体系结构"><span class="nav-number">2.</span> <span class="nav-text">Quartz体系结构</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Quartz集群架构图"><span class="nav-number">2.1.</span> <span class="nav-text">Quartz集群架构图</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Springboot集成Quartz"><span class="nav-number">3.</span> <span class="nav-text">Springboot集成Quartz</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
