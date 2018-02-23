@@ -104,14 +104,14 @@
 <meta name="keywords" content="高并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java NIO解析">
-<meta property="og:url" content="http://yoursite.com/2017/02/12/java-nio/index.html">
+<meta property="og:url" content="http://tigerdu.com/2017/02/12/java-nio/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
 <meta property="og:description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 四种IO模型简述同步阻塞(Blo">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg">
-<meta property="og:image" content="http://wx4.sinaimg.cn/mw690/78d85414ly1focjwn45gtj20ve0jodh2.jpg">
-<meta property="og:updated_time" content="2018-02-11T10:23:54.000Z">
+<meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1focjwn45gtj20ve0jodh2.jpg">
+<meta property="og:updated_time" content="2018-02-23T06:51:14.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java NIO解析">
 <meta name="twitter:description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 四种IO模型简述同步阻塞(Blo">
@@ -144,7 +144,7 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/02/12/java-nio/"/>
+  <link rel="canonical" href="http://tigerdu.com/2017/02/12/java-nio/"/>
 
 
 
@@ -337,7 +337,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/12/java-nio/">
+    <link itemprop="mainEntityOfPage" href="http://tigerdu.com/2017/02/12/java-nio/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="TigerDU">
@@ -389,8 +389,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Java-NIO原理浅析/" itemprop="url" rel="index">
-                    <span itemprop="name">Java NIO原理浅析</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -480,7 +480,7 @@
 <li>selected key set：这个集合是key set集合的子集，当有SelectionKey关联的Channel有Channel向Selector注册的IO事件就绪的时候并且有select操作，对应的SelectionKey会被放到selected key set中。因为这个集合中的SelectionKey可以通过直接调用Set的remove将SelectionKey移除。</li>
 <li>cancelled-key:这个集合是也是key set的子集。当有已经向Selector注册的Channel发生degistered的时候，SelectionKey将被放到这个集合，并且在下一次select的时候被从所有的集合中移出。</li>
 </ul>
-<p><img src="http://wx4.sinaimg.cn/mw690/78d85414ly1focjwn45gtj20ve0jodh2.jpg" alt="" title="图3 Selector的Selection Key集合流转图"></p>
+<p><img src="http://wx4.sinaimg.cn/mw1024/78d85414ly1focjwn45gtj20ve0jodh2.jpg" alt="" title="图3 Selector的Selection Key集合流转图"></p>
 <p>在开发过程中，我们可以将多个Channel注册到一个Selector实例中，用一个线程来处理所有的IO事件，我们也可以将多个Channel注册到多个Selector实例中，结合高效的线程模型可以达到很好的效果,<br>下面一个简单例子来说整个流转的过程。</p>
 
       
@@ -502,7 +502,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://yoursite.com/2017/02/12/java-nio/" title="Java NIO解析">http://yoursite.com/2017/02/12/java-nio/</a>
+    <a href="http://tigerdu.com/2017/02/12/java-nio/" title="Java NIO解析">http://tigerdu.com/2017/02/12/java-nio/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -630,7 +630,7 @@
             
             <div class="site-state-item site-state-categories">
               <a href="/categories/index.html">
-                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-count">2</span>
                 <span class="site-state-item-name">分类</span>
               </a>
             </div>
