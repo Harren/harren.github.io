@@ -100,21 +100,21 @@
 
 
 
-<meta name="description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 四种IO模型简述同步阻塞(Blo">
+<meta name="description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 常见概念同步与异步同步和异步关注的">
 <meta name="keywords" content="高并发">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java NIO解析">
 <meta property="og:url" content="http://tigerdu.com/2017/02/12/java-nio/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
-<meta property="og:description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 四种IO模型简述同步阻塞(Blo">
+<meta property="og:description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 常见概念同步与异步同步和异步关注的">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg">
 <meta property="og:image" content="http://wx4.sinaimg.cn/mw1024/78d85414ly1focjwn45gtj20ve0jodh2.jpg">
-<meta property="og:updated_time" content="2018-02-23T11:38:19.000Z">
+<meta property="og:updated_time" content="2018-02-26T10:21:31.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java NIO解析">
-<meta name="twitter:description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 四种IO模型简述同步阻塞(Blo">
+<meta name="twitter:description" content="Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。 常见概念同步与异步同步和异步关注的">
 <meta name="twitter:image" content="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg">
 
 
@@ -438,7 +438,26 @@
 
       
         <p>Java NIO是NEW IO的简称，他是一种可以代替Java IO的一套新的IO机制，严格上来看，Java NIO与并发并无直接的关系，NIO 的创建目的是为了让 Java 程序员可以实现高速 I/O 而无需编写自定义的本机代码。NIO 将最耗时的 I/O 操作(即填充和提取缓冲区)转移回操作系统，因而可以极大地提高速度使用NIO可以大大提升线程的使用效率。</p>
-<h2 id="四种IO模型简述"><a href="#四种IO模型简述" class="headerlink" title="四种IO模型简述"></a>四种IO模型简述</h2><h3 id="同步阻塞-Blocking-IO"><a href="#同步阻塞-Blocking-IO" class="headerlink" title="同步阻塞(Blocking IO)"></a>同步阻塞(Blocking IO)</h3><h3 id="同步非阻塞-Non-Blocking-IO"><a href="#同步非阻塞-Non-Blocking-IO" class="headerlink" title="同步非阻塞(Non-Blocking IO)"></a>同步非阻塞(Non-Blocking IO)</h3><h3 id="IO多路复用-IO-Multiplexing"><a href="#IO多路复用-IO-Multiplexing" class="headerlink" title="IO多路复用(IO Multiplexing)"></a>IO多路复用(IO Multiplexing)</h3><h3 id="异步IO-Asynchronous-IO"><a href="#异步IO-Asynchronous-IO" class="headerlink" title="异步IO(Asynchronous IO)"></a>异步IO(Asynchronous IO)</h3><h2 id="NIO模型"><a href="#NIO模型" class="headerlink" title="NIO模型"></a>NIO模型</h2><p>Java的NIO是基于IO多路复用模型，其主要有三个核心的组件：Channel、Buffer和Selector</p>
+<h2 id="常见概念"><a href="#常见概念" class="headerlink" title="常见概念"></a>常见概念</h2><h3 id="同步与异步"><a href="#同步与异步" class="headerlink" title="同步与异步"></a>同步与异步</h3><p>同步和异步关注的是消息通信机制。所谓同步，就是在发出一个调用，在没有得到结果前，该调用就不返回，但是一旦调用返回，就得到返回值，由调用者主动等待调用的这个结果。</p>
+<blockquote>
+<p>去银行办理业务，选择排队等候方式，这种就是同步等待消息通知，也就是需要我一直在等待银行办理业务情况。</p>
+</blockquote>
+<p>异步则是相反，调用在发出后，这个调用就直接返回了，所以没有返回结果，换言之，当一个异步过程调用发生后，调用着不会立刻得到结果，而是在调用后，被调用者通过状态来通知调用者或者通过回调函数来处理这个调用。</p>
+<blockquote>
+<p>去银行办理业务，从叫号机里面取出自己的好嘛，等到排到我者一号的时候由柜台的人通知我去办理业务，这种就是异步等待消息通知。在异步消息处理中，等待消息通知者往往注册一个回调机制，在所等待的事件被出发时由触发机制通过某种机制找到消息通知者。</p>
+</blockquote>
+<h3 id="阻塞与非阻塞"><a href="#阻塞与非阻塞" class="headerlink" title="阻塞与非阻塞"></a>阻塞与非阻塞</h3><p>阻塞和非阻塞这两个概念与程序（线程）等待消息通知(无所谓同步或者异步)时的状态有关。也就是说阻塞与非阻塞主要是程序（线程）等待消息通知时的状态角度来说的。</p>
+<blockquote>
+<p>排队等待或者叫号等待的过程中等待者除了等待消息通知之外不能做其他的事情，这种机制就是阻塞的。</p>
+</blockquote>
+<p>阻塞调用是指调用结果返回之前，当前的线程会被挂起，调用线程只有在得到结果之后才会返回，非阻塞调用是指在不能立刻得到结果之前，该调用不会阻塞当前线程。</p>
+<blockquote>
+<p>排队等待或者叫号等待的过程中等待者可以一边玩游戏一边听歌一边等待，这种机制就是非阻塞的。</p>
+</blockquote>
+<h2 id="传统的BIO"><a href="#传统的BIO" class="headerlink" title="传统的BIO"></a>传统的BIO</h2><p>一个连接一个线程，即客户端有连接请求时服务器端就需要启动一个线程进行处理，如果这个连接不做任何事情会造成不必要的线程开销。</p>
+<h2 id="伪异步I-O编程"><a href="#伪异步I-O编程" class="headerlink" title="伪异步I/O编程"></a>伪异步I/O编程</h2><h2 id="常见Java-IO模型"><a href="#常见Java-IO模型" class="headerlink" title="常见Java IO模型"></a>常见Java IO模型</h2><h3 id="同步阻塞I-O-Blocking-IO"><a href="#同步阻塞I-O-Blocking-IO" class="headerlink" title="同步阻塞I/O(Blocking IO)"></a>同步阻塞I/O(Blocking IO)</h3><h3 id="同步非阻塞I-O-Non-Blocking-IO"><a href="#同步非阻塞I-O-Non-Blocking-IO" class="headerlink" title="同步非阻塞I/O(Non-Blocking IO)"></a>同步非阻塞I/O(Non-Blocking IO)</h3><p>服务器实现模式为一个请求一个线程，但客户端发送的连接请求都会注册到多路复用器上，多路复用器轮询到连接有I/O请求时才启动一个线程进行处理</p>
+<h3 id="异步IO-Asynchronous-IO"><a href="#异步IO-Asynchronous-IO" class="headerlink" title="异步IO(Asynchronous IO)"></a>异步IO(Asynchronous IO)</h3><p>服务器实现模式为一个有效请求一个线程，客户端的I/O请求都是由OS先完成了再通知服务器应用去启动线程进行处理。</p>
+<h2 id="NIO模型I-O"><a href="#NIO模型I-O" class="headerlink" title="NIO模型I/O"></a>NIO模型I/O</h2><p>Java的NIO是基于IO多路复用模型，其主要有三个核心的组件：Channel、Buffer和Selector</p>
 <p><img src="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg" alt="" title="图1 nio核心组件"></p>
 <p>在JAVA NIO中，到任何目的地(或来自任何地方)的所有数据都必须通过一个 Channel 对象。一个 Buffer 实质上是一个容器对象。发送给一个通道的所有对象都必须首先放到缓冲区中；同样地，从通道中读取的任何数据都要读到缓冲区中。</p>
 <p><img src="http://wx1.sinaimg.cn/mw690/78d85414ly1fociun9yiej20eu05ha9x.jpg" alt="" title="图2 nio读写示意图"></p>
@@ -737,7 +756,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#四种IO模型简述"><span class="nav-number">1.</span> <span class="nav-text">四种IO模型简述</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步阻塞-Blocking-IO"><span class="nav-number">1.1.</span> <span class="nav-text">同步阻塞(Blocking IO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步非阻塞-Non-Blocking-IO"><span class="nav-number">1.2.</span> <span class="nav-text">同步非阻塞(Non-Blocking IO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#IO多路复用-IO-Multiplexing"><span class="nav-number">1.3.</span> <span class="nav-text">IO多路复用(IO Multiplexing)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步IO-Asynchronous-IO"><span class="nav-number">1.4.</span> <span class="nav-text">异步IO(Asynchronous IO)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NIO模型"><span class="nav-number">2.</span> <span class="nav-text">NIO模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Channel"><span class="nav-number">2.1.</span> <span class="nav-text">Channel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer"><span class="nav-number">2.2.</span> <span class="nav-text">Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selector"><span class="nav-number">2.3.</span> <span class="nav-text">Selector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">3.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#常见概念"><span class="nav-number">1.</span> <span class="nav-text">常见概念</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步与异步"><span class="nav-number">1.1.</span> <span class="nav-text">同步与异步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#阻塞与非阻塞"><span class="nav-number">1.2.</span> <span class="nav-text">阻塞与非阻塞</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#传统的BIO"><span class="nav-number">2.</span> <span class="nav-text">传统的BIO</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#伪异步I-O编程"><span class="nav-number">3.</span> <span class="nav-text">伪异步I/O编程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#常见Java-IO模型"><span class="nav-number">4.</span> <span class="nav-text">常见Java IO模型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#同步阻塞I-O-Blocking-IO"><span class="nav-number">4.1.</span> <span class="nav-text">同步阻塞I/O(Blocking IO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#同步非阻塞I-O-Non-Blocking-IO"><span class="nav-number">4.2.</span> <span class="nav-text">同步非阻塞I/O(Non-Blocking IO)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#异步IO-Asynchronous-IO"><span class="nav-number">4.3.</span> <span class="nav-text">异步IO(Asynchronous IO)</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NIO模型I-O"><span class="nav-number">5.</span> <span class="nav-text">NIO模型I/O</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Channel"><span class="nav-number">5.1.</span> <span class="nav-text">Channel</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Buffer"><span class="nav-number">5.2.</span> <span class="nav-text">Buffer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Selector"><span class="nav-number">5.3.</span> <span class="nav-text">Selector</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#参考文献"><span class="nav-number">6.</span> <span class="nav-text">参考文献</span></a></li></ol></div>
             
 
           </div>
