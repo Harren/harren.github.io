@@ -84,7 +84,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Java, Spring" />
+  <meta name="keywords" content="SpringBoot," />
 
 
 
@@ -100,16 +100,18 @@
 
 
 
-<meta name="description" content="有錢無錢日複日，碼上碼下年複年">
-<meta property="og:type" content="website">
-<meta property="og:title" content="TigerDU&#39;s World">
-<meta property="og:url" content="http://tigerdu.com/tags/视频压缩/index.html">
+<meta name="description" content="最近整个部门在向Java技术转型，新的业务全部都是Java实现，但是由于之前老的系统主要是php接口，其定义的参数都是下划线的个是，因此，在写Rest服务接口时特别别扭，但是为了兼容老系统的接口，需要在请求和接受参数和原来的保持一致，所以实现一个参数解析器将参数下划线形式转换为Java常用的驼峰形式，之后查阅了Springboot的相关资料，大致思路如下：自定义参数解析器实现HandlerMeth">
+<meta name="keywords" content="SpringBoot">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBoot自定义方法参数解析器">
+<meta property="og:url" content="http://tigerdu.com/2017/05/07/springboot-argument-resolver/index.html">
 <meta property="og:site_name" content="TigerDU&#39;s World">
-<meta property="og:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta property="og:description" content="最近整个部门在向Java技术转型，新的业务全部都是Java实现，但是由于之前老的系统主要是php接口，其定义的参数都是下划线的个是，因此，在写Rest服务接口时特别别扭，但是为了兼容老系统的接口，需要在请求和接受参数和原来的保持一致，所以实现一个参数解析器将参数下划线形式转换为Java常用的驼峰形式，之后查阅了Springboot的相关资料，大致思路如下：自定义参数解析器实现HandlerMeth">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2018-05-17T11:56:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="TigerDU&#39;s World">
-<meta name="twitter:description" content="有錢無錢日複日，碼上碼下年複年">
+<meta name="twitter:title" content="SpringBoot自定义方法参数解析器">
+<meta name="twitter:description" content="最近整个部门在向Java技术转型，新的业务全部都是Java实现，但是由于之前老的系统主要是php接口，其定义的参数都是下划线的个是，因此，在写Rest服务接口时特别别扭，但是为了兼容老系统的接口，需要在请求和接受参数和原来的保持一致，所以实现一个参数解析器将参数下划线形式转换为Java常用的驼峰形式，之后查阅了Springboot的相关资料，大致思路如下：自定义参数解析器实现HandlerMeth">
 
 
 
@@ -138,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://tigerdu.com/tags/视频压缩/"/>
+  <link rel="canonical" href="http://tigerdu.com/2017/05/07/springboot-argument-resolver/"/>
 
 
 
 
 
-  <title>标签: 视频压缩 | TigerDU's World</title>
+  <title>SpringBoot自定义方法参数解析器 | TigerDU's World</title>
   
 
 
@@ -179,7 +181,7 @@
     
   
 
-  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left  ">
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -317,54 +319,210 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block tag">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>视频压缩<small>标签</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://tigerdu.com/2017/05/07/springboot-argument-resolver/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="TigerDU">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="https://avatars3.githubusercontent.com/u/13324820?v=4&s=400&u=9aff55c49c03221be0d7854beb2b916ccd6f0e4c">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="TigerDU's World">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2016/10/14/ffmpeg-guide/" itemprop="url">
-              
-                <span itemprop="name">FFmpeg命令行转压视频</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">SpringBoot自定义方法参数解析器</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-10-14T14:45:38+08:00"
-              content="2016-10-14" >
-          10-14
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-05-07T14:31:43+08:00">
+                2017-05-07
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/技术杂谈/" itemprop="url" rel="index">
+                    <span itemprop="name">技术杂谈</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2017/05/07/springboot-argument-resolver/" class="leancloud_visitors" data-flag-title="SpringBoot自定义方法参数解析器">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数 </span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>最近整个部门在向Java技术转型，新的业务全部都是Java实现，但是由于之前老的系统主要是php接口，其定义的参数都是下划线的个是，因此，在写Rest服务接口时特别别扭，但是为了兼容老系统的接口，需要在请求和接受参数和原来的保持一致，所以实现一个参数解析器将参数下划线形式转换为Java常用的驼峰形式，之后查阅了Springboot的相关资料，大致思路如下：自定义参数解析器实现HandlerMethidArgumentResolver接口，将带有下划线的参数转换成驼峰形式，这样就可以在请求上就直接映射到实体类上到属性</p>
+<p>首先，我们需要注明请求中到哪些参数需要进行处理，类似于注解 @RequestParam 等，自定义一个参数注解如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Target</span>(value = ElementType.PARAMETER)</div><div class="line"><span class="meta">@Retention</span>(RetentionPolicy.RUNTIME)</div><div class="line"><span class="keyword">public</span> <span class="meta">@interface</span> ParamModel &#123;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其次，是定义下划线参数转换为驼峰参数到解析器UnderlineToCamelArgumentResolver，其代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UnderlineToCamelArgumentResolver</span> <span class="keyword">implements</span> <span class="title">HandlerMethodArgumentResolver</span> </span>&#123;</div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 匹配下划线的格式</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Pattern pattern = Pattern.compile(<span class="string">"_(\\w)"</span>);</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> String <span class="title">underLineToCamel</span><span class="params">(String source)</span> </span>&#123;</div><div class="line">        Matcher matcher = pattern.matcher(source);</div><div class="line">        StringBuffer sb = <span class="keyword">new</span> StringBuffer();</div><div class="line">        <span class="keyword">while</span> (matcher.find()) &#123;</div><div class="line">            matcher.appendReplacement(sb, matcher.group(<span class="number">1</span>).toUpperCase());</div><div class="line">        &#125;</div><div class="line">        matcher.appendTail(sb);</div><div class="line">        <span class="keyword">return</span> sb.toString();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">supportsParameter</span><span class="params">(MethodParameter methodParameter)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> methodParameter.hasParameterAnnotation(ParamModel.class);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">resolveArgument</span><span class="params">(MethodParameter parameter, ModelAndViewContainer container,</span></span></div><div class="line"><span class="function"><span class="params">            NativeWebRequest webRequest, WebDataBinderFactory binderFactory)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> handleParameterNames(parameter, webRequest);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> Object <span class="title">handleParameterNames</span><span class="params">(MethodParameter parameter, NativeWebRequest webRequest)</span> </span>&#123;</div><div class="line">        Object obj = BeanUtils.instantiate(parameter.getParameterType());</div><div class="line">        BeanWrapper wrapper = PropertyAccessorFactory.forBeanPropertyAccess(obj);</div><div class="line">        Iterator&lt;String&gt; paramNames = webRequest.getParameterNames();</div><div class="line">        <span class="keyword">while</span> (paramNames.hasNext()) &#123;</div><div class="line">            String paramName = paramNames.next();</div><div class="line">            Object o = webRequest.getParameter(paramName);</div><div class="line">            <span class="keyword">try</span> &#123;</div><div class="line">                wrapper.setPropertyValue(underLineToCamel(paramName), o);</div><div class="line">            &#125; <span class="keyword">catch</span> (BeansException e) &#123;</div><div class="line"></div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">return</span> obj;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>其中，在 handleParameterNames 方法中去实现参数名的转换，underLineToCamel 就是将下划线转成驼峰的形式，然后将修改完的参数名和值重新放入请求。</p>
+<p>在定义了解析器后，需要将自定义的解析器添加到配置中去，首先，需要定义一个WebConfig配置类需要继承WebMvcConfigurerAdapter,使用@Configuration注解，并重写addArgumentResolvers方法，将自定义解析器加入到argumentResolvers的List中去</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WebConfig</span> <span class="keyword">extends</span> <span class="title">WebMvcConfigurationSupport</span> </span>&#123;</div><div class="line"></div><div class="line"><span class="comment">//    如果请求方式为Put，则需要注册该过滤器</span></div><div class="line"><span class="comment">//    @Bean</span></div><div class="line"><span class="comment">//    public HttpPutFormContentFilter httpPutFormContentFilter() &#123;</span></div><div class="line"><span class="comment">//        return new HttpPutFormContentFilter();</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line"><span class="comment">     * 添加参数解析，将参数的形式从下划线转化为驼峰</span></div><div class="line"><span class="comment">     * <span class="doctag">@param</span> argumentResolvers</span></div><div class="line"><span class="comment">     */</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addArgumentResolvers</span><span class="params">(List&lt;HandlerMethodArgumentResolver&gt; argumentResolvers)</span> </span>&#123;</div><div class="line">        argumentResolvers.add(<span class="keyword">new</span> UnderlineToCamelArgumentResolver());</div><div class="line">        <span class="keyword">super</span>.addArgumentResolvers(argumentResolvers);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>该解析器只会对Post和Get的参数进行解析，对于Put方法的参数无法获取到，也无法直接映射到实体对象，jsp或者说html中的form的method值只能为post或get，我们可以通过HiddenHttpMethodFilter获取put表单中的参数-值，而在Spring3.0中获取put表单的参数-值还有另一种方法，即使用HttpPutFormContentFilter过滤器。HttpPutFormContentFilter过滤器的作为就是获取put表单的值，并将之传递到Controller中标注了method为RequestMethod.put的方法中（PS:  需要注意的是，该过滤器只能接受enctype值为application/x-www-form-urlencoded的表单）</p>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    TigerDU
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://tigerdu.com/2017/05/07/springboot-argument-resolver/" title="SpringBoot自定义方法参数解析器">http://tigerdu.com/2017/05/07/springboot-argument-resolver/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/SpringBoot/" rel="tag"># SpringBoot</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/04/16/dsp-infrastructure/" rel="next" title="互联网DSP广告系统及关键技术分析">
+                <i class="fa fa-chevron-left"></i> 互联网DSP广告系统及关键技术分析
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/05/14/traffic/" rel="prev" title="在线广告系统预算控制和流量预估的研究">
+                在线广告系统预算控制和流量预估的研究 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -372,6 +530,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -618,10 +780,10 @@
   
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
@@ -1085,7 +1247,7 @@
         showTime(Counter);
       }
     });
-  </script>
+  </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
@@ -1094,26 +1256,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
   
 
 
