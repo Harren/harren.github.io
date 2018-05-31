@@ -113,7 +113,7 @@
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1forlokp6loj20kc0bn427.jpg">
 <meta property="og:image" content="http://wx1.sinaimg.cn/mw1024/78d85414ly1forlt6lvycj20my08bwhm.jpg">
 <meta property="og:image" content="http://wx2.sinaimg.cn/mw690/78d85414ly1forlzkcvjwj20nf0f4dly.jpg">
-<meta property="og:updated_time" content="2018-02-24T08:49:36.000Z">
+<meta property="og:updated_time" content="2018-05-31T09:32:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java内存泄漏分析">
 <meta name="twitter:description" content="最近在Java项目运行中遇到，程序在启动后内存不断增加，单个java应用的内存占用到了13G，由于之前一直也没考虑过内存的问题，遇到这种内存泄漏的问题在这里记录一下解决的方案。  Java中的内存泄露，广义并通俗的说，就是指无用对象（不再使用的对象）持续占有内存或无用对象的内存得不到及时释放，从而造成的内存空间的浪费。Java中的内存泄露与C++中的表现有所不同。在C++中，所有被分配了内存的对">
@@ -450,8 +450,8 @@
 <p>Java中的内存泄露，广义并通俗的说，就是指无用对象（不再使用的对象）持续占有内存或无用对象的内存得不到及时释放，从而造成的内存空间的浪费。Java中的内存泄露与C++中的表现有所不同。在C++中，所有被分配了内存的对象，不再使用后，都必须程序员手动的释放他们。所以，每个类，都会含有一个析构函数，作用就是完成清理工作，如果我们忘记了某些对象的释放，就会造成内存泄露。</p>
 <p>但是在Java中，我们不用（也没办法）自己释放内存，无用的对象由GC自动清理，这也极大的简化了我们的编程工作。但，实际有时候一些不再会被使用的对象，在GC看来不能被释放，就会造成内存泄露。我们知道，对象都是有生命周期的，有的长，有的短，如果长生命周期的对象持有短生命周期的引用，就很可能会出现内存泄露。</p>
 <h2 id="内存分析工具"><a href="#内存分析工具" class="headerlink" title="内存分析工具"></a>内存分析工具</h2><p>由于确定是内存的问题，需要使用jdk工具来获取到java的内存使用情况，在这里介绍jmap和mat两个工具。</p>
-<h3 id="Jmap-内存映像工具"><a href="#Jmap-内存映像工具" class="headerlink" title="Jmap(内存映像工具)"></a>Jmap(内存映像工具)</h3><p>jmap(Memory Map for Java) 命令用于生成堆存储文件，它还可以查询finalize执行队列、Java堆和永久代的详细信息，例如空间使用率、当前使用的是哪种收集器等，其命令行格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jmap [ option ] vmid</div></pre></td></tr></table></figure></p>
-<p>其中vmid为进程号，option选项的和合法值与具体的含义如下：</p>
+<h3 id="Jmap-内存映像工具"><a href="#Jmap-内存映像工具" class="headerlink" title="Jmap(内存映像工具)"></a>Jmap(内存映像工具)</h3><p>jmap(Memory Map for Java) 命令用于生成堆存储文件，它还可以查询finalize执行队列、Java堆和永久代的详细信息，例如空间使用率、当前使用的是哪种收集器等，其命令行格式为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jmap [ option ] &lt;pid&gt;</div></pre></td></tr></table></figure></p>
+<p>其中<pid>为进程号，option选项的和合法值与具体的含义如下：</pid></p>
 <div class="table-container">
 <table>
 <thead>
@@ -488,7 +488,29 @@
 </tbody>
 </table>
 </div>
-<p>下面根据该命令对于发生内存泄露的应用 dump 快照文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jmap -dump:format=b,file=/tmp/dump1.hprof 219207</div></pre></td></tr></table></figure></p>
+<p>首先打印heap空间的概要，这里可以粗略的检验heap空间的使用情况<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div></pre></td><td class="code"><pre><div class="line">[root@bx-docker007 kanghua]<span class="comment"># jmap -heap 128060</span></div><div class="line">Attaching to process ID 128060, please <span class="built_in">wait</span>...</div><div class="line">Debugger attached successfully.</div><div class="line">Server compiler detected.</div><div class="line">JVM version is 25.111-b14</div><div class="line"></div><div class="line">using thread-local object allocation.</div><div class="line">Parallel GC with 18 thread(s)</div><div class="line"></div><div class="line">Heap Configuration:</div><div class="line">   MinHeapFreeRatio         = 0</div><div class="line">   MaxHeapFreeRatio         = 100</div><div class="line">   MaxHeapSize              = 32210157568 (30718.0MB)</div><div class="line">   NewSize                  = 703070208 (670.5MB)</div><div class="line">   MaxNewSize               = 10736369664 (10239.0MB)</div><div class="line">   OldSize                  = 1406664704 (1341.5MB)</div><div class="line">   NewRatio                 = 2</div><div class="line">   SurvivorRatio            = 8</div><div class="line">   MetaspaceSize            = 21807104 (20.796875MB)</div><div class="line">   CompressedClassSpaceSize = 1073741824 (1024.0MB)</div><div class="line">   MaxMetaspaceSize         = 17592186044415 MB</div><div class="line">   G1HeapRegionSize         = 0 (0.0MB)</div><div class="line"></div><div class="line">Heap Usage:</div><div class="line">PS Young Generation</div><div class="line">Eden Space:</div><div class="line">   capacity = 5145362432 (4907.0MB)</div><div class="line">   used     = 228703800 (218.10894012451172MB)</div><div class="line">   free     = 4916658632 (4688.891059875488MB)</div><div class="line">   4.444853069584506% used</div><div class="line">From Space:</div><div class="line">   capacity = 18350080 (17.5MB)</div><div class="line">   used     = 18321760 (17.472991943359375MB)</div><div class="line">   free     = 28320 (0.027008056640625MB)</div><div class="line">   99.84566824776786% used</div><div class="line">To Space:</div><div class="line">   capacity = 11534336 (11.0MB)</div><div class="line">   used     = 0 (0.0MB)</div><div class="line">   free     = 11534336 (11.0MB)</div><div class="line">   0.0% used</div><div class="line">PS Old Generation</div><div class="line">   capacity = 5639241728 (5378.0MB)</div><div class="line">   used     = 75488904 (71.99182891845703MB)</div><div class="line">   free     = 5563752824 (5306.008171081543MB)</div><div class="line">   1.3386357180821316% used</div></pre></td></tr></table></figure></p>
+<p>可以看出新生代和老年代的空间都很大，但是实际的使用的内存空间都比较小，考虑是整个程序中产生了大内存然后释放造成的整体内存很大，如果发现老年代的使用率比较高的话，可以手动进行一次FullGC观察老年代的使用率是否有变化，命令如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jmap -histo:live &lt;pid&gt;</div></pre></td></tr></table></figure></p>
+<p>检测gc的次数，命令如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jstat -gc &lt;pid&gt; &lt;period&gt; &lt;times&gt;</div></pre></td></tr></table></figure></p>
+<p>输出如下所示<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">[root@bx-docker007 kanghua]# jstat -gc vmid 1000 1</div><div class="line">S0C    S1C    S0U    S1U      EC       EU        OC         OU       MC     MU    CCSC   CCSU   YGC     YGCT    FGC    FGCT     GCT</div><div class="line">23040.0 20480.0  0.0   20372.5 4788224.0 2295539.6 5507072.0   81879.6   61912.0 60106.4 7168.0 6775.4  36327  493.242   7      2.401  495.643</div></pre></td></tr></table></figure></p>
+<p>其中结果中每个项目的含义可以参考官方对<a href="http://docs.oracle.com/javase/1.5.0/docs/tooldocs/share/jstat.html" target="_blank" rel="external">jstat</a>的文档，简单翻译如下</p>
+<ul>
+<li>S0C: Young Generation第一个survivor space的内存大小 (kB).</li>
+<li>S1C: Young Generation第二个survivor space的内存大小 (kB).</li>
+<li>S0U: Young Generation第一个Survivor space当前已使用的内存大小 (kB).</li>
+<li>S1U: Young Generation第二个Survivor space当前已经使用的内存大小 (kB).</li>
+<li>EC: Young Generation中eden space的内存大小 (kB).</li>
+<li>EU: Young Generation中Eden space当前已使用的内存大小 (kB).</li>
+<li>OC: Old Generation的内存大小 (kB).</li>
+<li>OU: Old Generation当前已使用的内存大小 (kB).</li>
+<li>PC: Permanent Generation的内存大小 (kB)</li>
+<li>PU: Permanent Generation当前已使用的内存大小 (kB).</li>
+<li>YGC: 从启动到采样时Young Generation GC的次数</li>
+<li>YGCT: 从启动到采样时Young Generation GC所用的时间 (s).</li>
+<li>FGC: 从启动到采样时Old Generation GC的次数.</li>
+<li>FGCT: 从启动到采样时Old Generation GC所用的时间 (s).</li>
+<li>GCT: 从启动到采样时GC所用的总时间 (s).</li>
+</ul>
+<p>其中，可以发现FullGC的次数为7次，从这里可以看出没有内存泄漏问题的存在，如果频繁发生FullGC，那么存在内存泄漏的问题，就需要将堆栈信息导出进行分析了,下面根据该命令对于发生内存泄露的应用 dump 快照文件<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">jmap -dump:format=b,file=/tmp/dump1.hprof &lt;pid&gt;</div></pre></td></tr></table></figure></p>
 <h3 id="MAT-堆转储分析工具"><a href="#MAT-堆转储分析工具" class="headerlink" title="MAT(堆转储分析工具)"></a>MAT(堆转储分析工具)</h3><p>Sun JDK提供了jhat(JVM Heap Analysis Tool)命令与jmap搭配使用，来分析jmap生成的堆转储快照，但是，在实际工作中，一般都不会使用jhat命令分析dump文件，主要原因有两个：一是一般不会在部署应用服务的服务器上直接分析dump文件，因为分析工作是一个耗时而且消耗硬件资源的过程；另一个原因是jhat的分析功能相对来说比较简陋，我使用专业用于分析dump文件的Eclipse Memory Analyzer进行分析查找内存泄漏问题。</p>
 <p><img src="http://wx1.sinaimg.cn/mw1024/78d85414ly1forl2ndl5dj217h0qojvu.jpg" alt="" title="图1 MAT预览分析页面"></p>
 <p>图1即是对于jmap命令生成的堆文件进行分析的界面，下面分别介绍其主要子功能模块</p>
